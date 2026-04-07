@@ -1,0 +1,51 @@
+# .github/workflows/deploy.yml
+# Auto-deploys static HTML site to GitHub Pages on every push to main
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]          # Trigger on every push to main branch [[9]]
+  workflow_dispatch:          # Allow manual trigger from Actions tab
+
+# Grant minimal required permissions for Pages deployment [[5]]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only allow one concurrent deployment to avoid conflicts
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages      # Required for Pages deployment protection [[5]]
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Checkout your repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Configure Pages environment (sets GITHUB_PAGES env var) [[9]]
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # 3. Upload your entire static site as a Pages artifact
+      #    Since your site is pure HTML/CSS/JS with no build step, 
+      #    we upload the root directory directly [[9]]
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'           # Upload entire repo root (your HTML files live here)
+          # Optional: include hidden files if needed (default: false)
+          # include-hidden-files: false
+
+      # 4. Deploy the uploaded artifact to GitHub Pages [[5]]
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
