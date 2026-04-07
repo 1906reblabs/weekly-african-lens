@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Editions Archive — The Daily African Lens</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0e0e;
+    --cream: #faf7f2;
+    --gold: #c8922a;
+    --gold-light: #f0d898;
+    --rust: #b84c2a;
+    --teal: #1a6b5e;
+    --teal-light: #e3f2ee;
+    --border: #d8d0c4;
+    --mid-grey: #7a7570;
+    --light-grey: #ede9e3;
+    --deep-blue: #0a1628;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; line-height: 1.7; }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  nav {
+    background: var(--deep-blue);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .nav-brand { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: #fff; }
+  .nav-brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 24px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links a { color: #8a99b8; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); text-decoration: none; }
+
+  .hero {
+    background: var(--ink);
+    padding: 48px 32px 36px;
+    text-align: center;
+  }
+  .hero .over { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; color: #fff; line-height: 1; letter-spacing: -0.02em; margin-bottom: 10px; }
+  .hero p { font-family: 'DM Mono', monospace; font-size: 11px; color: #7a8294; letter-spacing: 0.12em; text-transform: uppercase; }
+  .hero-stats { display: flex; justify-content: center; gap: 40px; margin-top: 28px; flex-wrap: wrap; }
+  .hs-val { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); font-weight: 700; }
+  .hs-lbl { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #7a8294; margin-top: 2px; }
+
+  .main { max-width: 860px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--mid-grey);
+    cursor: pointer;
+  }
+  .filter-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+  .month-group { margin-bottom: 36px; }
+  .month-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+  }
+
+  .edition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .ed-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.15s;
+    position: relative;
+  }
+  .ed-card:hover { box-shadow: 3px 3px 0 var(--ink); }
+  .ed-card .ec-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .ed-card .ec-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 2px 8px;
+  }
+  .ed-card .ec-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--mid-grey);
+    letter-spacing: 0.04em;
+  }
+  .ed-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 8px;
+    flex: 1;
+  }
+  .ed-card .ec-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
+  .ec-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .t-policy { background: var(--teal-light); color: var(--teal); }
+  .t-security { background: #fbe9e6; color: var(--rust); }
+  .t-tech { background: #fef3e2; color: var(--gold); }
+  .t-infra { background: #f3e5f5; color: #6a1b9a; }
+  .t-ecosystem { background: #e9f5e9; color: #2e7d32; }
+  .t-geo { background: #e3f2fd; color: #1565c0; }
+  .t-research { background: #ede7f6; color: #5e35b1; }
+  .ed-card .ec-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    padding: 5px 12px;
+    align-self: flex-start;
+    transition: all 0.12s;
+  }
+  .ed-card .ec-link:hover { background: var(--teal); color: #fff; text-decoration: none; }
+
+  /* Extended catch-up editions */
+  .ed-card.catchup { border-left: 3px solid var(--gold); }
+  .ed-card.catchup .ec-badge { background: var(--gold); color: var(--ink); }
+
+  /* Breaking editions */
+  .ed-card.breaking { border-left: 3px solid var(--rust); }
+  .ed-card.breaking .ec-badge { background: var(--rust); }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .pag-btn {
+    padding: 8px 16px;
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--mid-grey);
+  }
+  .pag-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  footer {
+    background: var(--ink);
+    color: #7a8294;
+    text-align: center;
+    padding: 28px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+  footer strong { color: #c8d4e8; }
+
+  @media (max-width: 580px) {
+    .edition-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; }
+    nav { padding: 12px 18px; }
+    .main { padding: 28px 16px 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" style="text-decoration:none;">
+    <div class="nav-brand">The Daily African Lens<span>.</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Archive</a>
+    <a href="../weekly/index.html">AI Weekly</a>
+    <a href="index.html" class="active">Daily Editions</a>
+    <a href="https://simphiwemlotshwa.substack.com/" target="_blank">Subscribe</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="over">Edition Archive</div>
+  <h1>Daily Editions</h1>
+  <p>6:00 AM SAST · Every Weekday · March–April 2026</p>
+  <div class="hero-stats">
+    <div><div class="hs-val">17</div><div class="hs-lbl">Editions</div></div>
+    <div><div class="hs-val">54</div><div class="hs-lbl">Nations</div></div>
+    <div><div class="hs-val">180+</div><div class="hs-lbl">Stories Ranked</div></div>
+    <div><div class="hs-val">Q1 '26</div><div class="hs-lbl">Coverage Period</div></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- APRIL 2026 -->
+  <div class="month-group">
+    <div class="month-label">April 2026</div>
+    <div class="edition-grid">
+
+      <div class="ed-card breaking">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-088</span>
+          <span class="ec-date">01 Apr 2026</span>
+        </div>
+        <h3>Q1 Closes: Equinix R7.5B, Nigeria Bill Post-Deadline, GITEX 6 Days Out</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-infra">Infrastructure</span>
+          <span class="ec-tag t-policy">Policy</span>
+          <span class="ec-tag t-geo">Geopolitics</span>
+        </div>
+        <a href="dal-026-088.html" class="ec-link">Read Edition →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MARCH 2026 -->
+  <div class="month-group">
+    <div class="month-label">March 2026</div>
+    <div class="edition-grid">
+
+      <div class="ed-card breaking">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-087</span>
+          <span class="ec-date">31 Mar 2026</span>
+        </div>
+        <h3>Deadline Day: Nigeria AI Bill + Equinix + AfDB MEO 2026 + NKENNEAi Talks</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-policy">Legislation</span>
+          <span class="ec-tag t-infra">Infrastructure</span>
+          <span class="ec-tag t-tech">Language AI</span>
+        </div>
+        <a href="dal-026-087.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-081</span>
+          <span class="ec-date">24 Mar 2026</span>
+        </div>
+        <h3>TECNO EllaClaw + Africa FinTech Forum Opens + Nigeria Tops $470M Surveillance Spend</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-tech">Tech</span>
+          <span class="ec-tag t-security">Security</span>
+          <span class="ec-tag t-ecosystem">Fintech</span>
+        </div>
+        <a href="dal-026-081.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card catchup">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-080</span>
+          <span class="ec-date">23 Mar 2026 · 48-Hr</span>
+        </div>
+        <h3>Africa Is Not Missing the AI Wave + $2B Chinese Surveillance + SA Gazette Imminent</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-ecosystem">Ecosystem</span>
+          <span class="ec-tag t-security">Geopolitics</span>
+          <span class="ec-tag t-policy">Policy</span>
+        </div>
+        <a href="dal-026-080.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-079</span>
+          <span class="ec-date">21 Mar 2026</span>
+        </div>
+        <h3>Rest of World: $2B Chinese AI Surveillance Across 11 African Nations + World Bank WDR</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-security">Security</span>
+          <span class="ec-tag t-geo">Geopolitics</span>
+          <span class="ec-tag t-research">Research</span>
+        </div>
+        <a href="dal-026-079.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-078</span>
+          <span class="ec-date">20 Mar 2026</span>
+        </div>
+        <h3>Kenya AI Bill Senate Debate + Data Protection as Backdoor AI Regulation + Cassava Recap</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-policy">Legislation</span>
+          <span class="ec-tag t-research">Research</span>
+          <span class="ec-tag t-tech">Kenya</span>
+        </div>
+        <a href="dal-026-078.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-077</span>
+          <span class="ec-date">19 Mar 2026</span>
+        </div>
+        <h3>Cassava AI Factory Deploys in SA + Google Accelerator Closes + BAFAI Expands Curriculum</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-infra">Infrastructure</span>
+          <span class="ec-tag t-ecosystem">Ecosystem</span>
+          <span class="ec-tag t-tech">Skilling</span>
+        </div>
+        <a href="dal-026-077.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-076</span>
+          <span class="ec-date">18 Mar 2026</span>
+        </div>
+        <h3>Rwanda FinTech Centre Launch + NDPC Deepfake Consultation + Standard Bank Kukura Robot</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-ecosystem">Fintech</span>
+          <span class="ec-tag t-security">AI Fraud</span>
+          <span class="ec-tag t-tech">Tech</span>
+        </div>
+        <a href="dal-026-076.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-075</span>
+          <span class="ec-date">17 Mar 2026</span>
+        </div>
+        <h3>NVIDIA GTC 2026 Keynote + MTN AI Data Centre Partners + Mark Nasila Sovereign AI</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-infra">Infrastructure</span>
+          <span class="ec-tag t-research">Op-Ed</span>
+          <span class="ec-tag t-tech">Tech</span>
+        </div>
+        <a href="dal-026-075.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card catchup">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-074</span>
+          <span class="ec-date">16 Mar 2026 · 48-Hr</span>
+        </div>
+        <h3>Microsoft Elevate 3M Africans + Nigeria AI Bill + Ghana Court AI Procurement Challenge</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-geo">Geopolitics</span>
+          <span class="ec-tag t-policy">Policy</span>
+          <span class="ec-tag t-ecosystem">Investment</span>
+        </div>
+        <a href="dal-026-074.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-073</span>
+          <span class="ec-date">14 Mar 2026</span>
+        </div>
+        <h3>Servernah Cloud — East Africa's First Sovereign AI Platform + HyperDev SA Launch</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-infra">Infrastructure</span>
+          <span class="ec-tag t-tech">Kenya</span>
+          <span class="ec-tag t-ecosystem">Startup</span>
+        </div>
+        <a href="dal-026-073.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card breaking">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-072</span>
+          <span class="ec-date">13 Mar 2026</span>
+        </div>
+        <h3>Microsoft vs DeepSeek — Bloomberg Exclusive: The War for Africa's AI Default Layer</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-geo">Geopolitics</span>
+          <span class="ec-tag t-tech">Microsoft</span>
+          <span class="ec-tag t-infra">Infrastructure</span>
+        </div>
+        <a href="dal-026-072.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-071</span>
+          <span class="ec-date">12 Mar 2026</span>
+        </div>
+        <h3>Microsoft-MTN Copilot Deal + IFF 2026 Kigali Closes + Veta Origin African LLM</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-tech">Tech</span>
+          <span class="ec-tag t-ecosystem">Fintech</span>
+          <span class="ec-tag t-tech">Language AI</span>
+        </div>
+        <a href="dal-026-071.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-070</span>
+          <span class="ec-date">11 Mar 2026</span>
+        </div>
+        <h3>Inclusive FinTech Forum Kigali + TikTok $200K AI Literacy + FraudLens Open-Source Launch</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-ecosystem">Rwanda</span>
+          <span class="ec-tag t-security">AI Fraud</span>
+          <span class="ec-tag t-tech">Skilling</span>
+        </div>
+        <a href="dal-026-070.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-069</span>
+          <span class="ec-date">10 Mar 2026</span>
+        </div>
+        <h3>UN ECA ERA 2026 Preview + Nigeria AI Election AI Swarm Threat + Vodacom CEO Op-Ed</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-research">Continental</span>
+          <span class="ec-tag t-security">Security</span>
+          <span class="ec-tag t-policy">Policy</span>
+        </div>
+        <a href="dal-026-069.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-068</span>
+          <span class="ec-date">09 Mar 2026</span>
+        </div>
+        <h3>Nigeria 2027 Election AI Attack + Cassava Autonomous Network + Roam Explorer EV Fleet AI</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-security">AI Fraud</span>
+          <span class="ec-tag t-infra">Infrastructure</span>
+          <span class="ec-tag t-tech">Mobility</span>
+        </div>
+        <a href="dal-026-068.html" class="ec-link">Read Edition →</a>
+      </div>
+
+      <div class="ed-card breaking">
+        <div class="ec-top">
+          <span class="ec-badge">DAL-026-067</span>
+          <span class="ec-date">08 Mar 2026</span>
+        </div>
+        <h3>Launch Edition: Google 13 African Languages + Smile ID 69% AI Fraud + US-China Competition</h3>
+        <div class="ec-tags">
+          <span class="ec-tag t-tech">Language AI</span>
+          <span class="ec-tag t-security">Security</span>
+          <span class="ec-tag t-geo">Geopolitics</span>
+        </div>
+        <a href="dal-026-067.html" class="ec-link">Read Edition →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div style="background:#fff;border:1px solid var(--border);padding:16px 20px;margin-top:12px;">
+    <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:10px;">Edition Types</div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:#3a3530;">
+      <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;background:var(--ink);display:inline-block;"></span>Standard 24-hour edition</span>
+      <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;background:var(--rust);display:inline-block;"></span>Breaking / Deadline day</span>
+      <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;background:var(--gold);display:inline-block;"></span>48-hour catch-up (Sunday rest day)</span>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<footer>
+  <p><strong>The Daily African Lens</strong> · AI · Machine Learning · Data Science · Across 54 Nations</p>
+  <p style="margin-top:8px;">Published at 6:00 AM SAST · Archive hosted on GitHub Pages · © 2026 The Daily African Lens</p>
+  <p style="margin-top:6px;"><a href="https://simphiwemlotshwa.substack.com/" style="color:#8a99b8;">simphiwemlotshwa.substack.com</a></p>
+</footer>
+
+</body>
+</html>
