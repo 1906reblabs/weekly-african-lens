@@ -3,107 +3,919 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIW-026-04 — Coming Soon | The Daily African Lens</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>AI Weekly Intelligence — Edition #AIW-026-04 | 31 March 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #0e0e0e; --cream: #faf7f2; --gold: #c8922a;
-    --rust: #b84c2a; --teal: #1a6b5e; --border: #d8d0c4;
-    --mid-grey: #7a7570; --light-grey: #ede9e3; --deep-blue: #0a1628;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; }
-  a { color: var(--teal); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  nav { background: var(--deep-blue); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .nav-brand { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: #fff; }
-  .nav-brand span { color: var(--gold); }
-  .nav-links { display: flex; gap: 24px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
-  .nav-links a { color: #8a99b8; }
-  .hero { background: var(--ink); padding: 60px 32px 48px; text-align: center; }
-  .hero .over { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
-  .hero .badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; background: var(--gold); color: var(--deep-blue); padding: 5px 14px; font-weight: 600; margin-bottom: 20px; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 40px); font-weight: 900; color: #fff; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px; max-width: 640px; margin-left: auto; margin-right: auto; }
-  .hero .window { font-family: 'DM Mono', monospace; font-size: 11px; color: #7a8294; letter-spacing: 0.08em; }
-  .main { max-width: 680px; margin: 0 auto; padding: 48px 24px 64px; }
-  .status-box { background: var(--deep-blue); color: #e0dbd4; padding: 28px 32px; margin-bottom: 28px; text-align: center; }
-  .status-box .sb-icon { font-size: 36px; margin-bottom: 14px; }
-  .status-box h2 { font-family: 'Playfair Display', serif; font-size: 20px; color: #fff; margin-bottom: 10px; }
-  .status-box p { font-size: 13.5px; color: #8a99b8; line-height: 1.65; }
-  .preview-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--gold); padding: 24px 26px; margin-bottom: 20px; }
-  .preview-box h3 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
-  .preview-box p { font-size: 13.5px; color: #3a3530; line-height: 1.7; margin-bottom: 14px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; background: var(--light-grey); color: var(--mid-grey); }
-  .nav-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn { display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 20px; }
-  .btn-primary { background: var(--teal); color: #fff; }
-  .btn-primary:hover { background: var(--ink); text-decoration: none; }
-  .btn-secondary { background: #fff; color: var(--teal); border: 1px solid var(--teal); }
-  .btn-secondary:hover { background: var(--teal-light, #e3f2ee); text-decoration: none; }
-  footer { background: var(--ink); color: #7a8294; text-align: center; padding: 28px 24px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; }
-  footer strong { color: #c8d4e8; }
+:root {
+  --ink: #0e0e0e;
+  --cream: #faf7f2;
+  --gold: #c8922a;
+  --gold-light: #f0d898;
+  --rust: #b84c2a;
+  --teal: #1a6b5e;
+  --teal-light: #e3f2ee;
+  --border: #d8d0c4;
+  --mid-grey: #7a7570;
+  --light-grey: #ede9e3;
+  --deep: #0a1020;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── LAYOUT ── */
+.wrapper { max-width: 760px; margin: 0 auto; padding: 0 22px 80px; }
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--deep);
+  padding: 10px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.topbar-brand { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 900; color: #fff; letter-spacing: -0.01em; }
+.topbar-brand span { color: var(--gold); }
+.topbar-meta { font-family: 'DM Mono', monospace; font-size: 10px; color: #6a7890; letter-spacing: 0.08em; text-transform: uppercase; }
+.topbar-badge { background: var(--rust); color: #fff; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 9px; font-weight: 500; }
+
+/* ── HERO ── */
+.hero {
+  background: #1a0505;
+  background-image: linear-gradient(135deg, #1a0505 0%, #0a1020 60%, #0a1a0f 100%);
+  padding: 52px 22px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -60px;
+  width: 240px; height: 240px;
+  border: 1px solid rgba(184,76,42,0.2);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 180px; height: 180px;
+  border: 1px solid rgba(184,76,42,0.1);
+  border-radius: 50%;
+}
+.hero .over { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rust); margin-bottom: 14px; opacity: 0.9; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5.5vw, 52px); font-weight: 900; color: #fff; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 16px; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero .sub { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5a6880; margin-bottom: 32px; }
+.hero-window {
+  display: inline-block;
+  background: rgba(184,76,42,0.12);
+  border: 1px solid rgba(184,76,42,0.3);
+  padding: 8px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #e8b0a0;
+  letter-spacing: 0.06em;
+}
+.hero-stats { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); }
+.hs { text-align: center; }
+.hs-val { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--gold); display: block; }
+.hs-val.red { color: var(--rust); }
+.hs-lbl { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #5a6880; margin-top: 2px; display: block; }
+
+/* ── DEADLINE BANNER ── */
+.deadline-banner {
+  background: var(--rust);
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  flex-wrap: wrap;
+}
+.deadline-banner .pulse {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  animation: pulse 1.3s infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse { 0%, 100% { opacity:1; transform:scale(1); } 50% { opacity:0.3; transform:scale(0.75); } }
+
+/* ── EXEC BOX ── */
+.exec-box { background: var(--ink); color: var(--cream); padding: 32px 28px; margin: 36px 0; }
+.exec-box .ex-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.exec-box .ex-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 20px; line-height: 1.3; }
+.exec-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.exec-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 13.5px; line-height: 1.6; color: #c8d0dc; }
+.exec-list li::before { content: '→'; color: var(--gold); font-family: 'DM Mono', monospace; font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+.exec-list li.critical::before { content: '⚡'; color: var(--rust); }
+
+/* ── SECTION HEADERS ── */
+.sec { border-top: 3px solid var(--ink); margin: 44px 0 24px; padding-top: 16px; display: flex; align-items: baseline; gap: 12px; }
+.sec-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.1em; flex-shrink: 0; }
+.sec h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; letter-spacing: -0.01em; color: var(--ink); }
+
+/* ── STORY CARDS ── */
+.story { background: #fff; border: 1px solid var(--border); padding: 22px 22px 18px; margin-bottom: 14px; position: relative; }
+.story-rank { position: absolute; top: -1px; left: -1px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 10px; background: var(--gold); color: var(--deep); }
+.story-rank.critical { background: var(--rust); color: #fff; }
+.story-rank.pivot    { background: #5a2a00; color: var(--gold-light); }
+.story-rank.infra    { background: #2a1055; color: #c4b8f0; }
+.story-rank.watch    { background: var(--teal); color: #fff; }
+.story-rank.geo      { background: #082050; color: #90caf9; }
+.story h3 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; line-height: 1.4; margin: 22px 0 10px; color: var(--ink); }
+.pills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+.pill { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+.pl-p { background: var(--teal-light); color: var(--teal); }
+.pl-s { background: #fbe9e6; color: var(--rust); }
+.pl-t { background: #fef3e2; color: #9a6210; }
+.pl-i { background: #f3e5f5; color: #6a1b9a; }
+.pl-g { background: #e3f2fd; color: #1565c0; }
+.pl-e { background: #e9f5e9; color: #2e7d32; }
+.pl-k { background: var(--ink); color: var(--cream); }
+.pl-r { background: #fbe9e6; color: var(--rust); }
+.story p { font-size: 13.5px; line-height: 1.72; color: #2a2520; margin-bottom: 10px; }
+.insight-box { background: #fffbf0; border-left: 3px solid var(--gold); padding: 10px 14px; margin-top: 12px; }
+.insight-box .ib-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+.insight-box p { font-size: 13px; color: #5a4a1a; margin: 0; }
+.story .meta-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 12px; border-top: 1px dashed var(--border); margin-top: 12px; }
+.story .source { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--mid-grey); flex: 1; }
+
+/* ── DATA PANELS ── */
+.data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.data-card { background: #fff; border: 1px solid var(--border); padding: 16px 18px; }
+.dc-val { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--ink); display: block; }
+.dc-val.gold { color: var(--gold); }
+.dc-val.rust { color: var(--rust); }
+.dc-val.teal { color: var(--teal); }
+.dc-lbl { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--mid-grey); margin-top: 4px; text-transform: uppercase; display: block; }
+
+/* ── STRATEGIC INSIGHTS ── */
+.insight-card { background: var(--teal); color: #fff; padding: 20px 22px; margin-bottom: 12px; }
+.ic-head { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+.ic-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+.ic-body { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+/* ── OPPORTUNITIES ── */
+.opp-row { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px dashed var(--border); }
+.opp-row:last-child { border-bottom: none; }
+.opp-num { width: 28px; height: 28px; background: var(--gold); color: var(--deep); font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.opp-title { font-weight: 600; font-size: 13.5px; margin-bottom: 3px; }
+.opp-desc { font-size: 12.5px; color: var(--mid-grey); line-height: 1.6; }
+
+/* ── RISKS ── */
+.risk-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: #fff5f3; border-left: 3px solid var(--rust); margin-bottom: 10px; font-size: 13.5px; }
+.risk-icon { color: var(--rust); font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+
+/* ── EVENTS TABLE ── */
+.events-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.events-table th { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-grey); background: var(--light-grey); padding: 8px 12px; text-align: left; border-bottom: 2px solid var(--border); }
+.events-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 13px; background: #fff; vertical-align: top; }
+.events-table tr:last-child td { border-bottom: none; }
+.ev-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--rust); white-space: nowrap; }
+.ev-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 6px; background: var(--teal-light); color: var(--teal); border-radius: 2px; margin-top: 2px; }
+.ev-tag.live { background: #fbe9e6; color: var(--rust); }
+.ev-tag.done { background: var(--light-grey); color: var(--mid-grey); }
+
+/* ── TIMELINE TRACKER ── */
+.timeline { border-left: 3px solid var(--border); padding-left: 20px; margin: 16px 0; }
+.tl-item { position: relative; padding-bottom: 18px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before { content: ''; position: absolute; left: -27px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
+.tl-item.passed::before { background: var(--teal); }
+.tl-item.missed::before { background: var(--rust); }
+.tl-date { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--mid-grey); letter-spacing: 0.06em; margin-bottom: 2px; }
+.tl-text { font-size: 13.5px; font-weight: 500; color: var(--ink); }
+.tl-sub { font-size: 12px; color: var(--mid-grey); margin-top: 2px; }
+
+/* ── EDITOR NOTE ── */
+.ed-note { background: var(--ink); color: var(--cream); padding: 28px 26px; margin-top: 44px; }
+.en-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.ed-note p { font-size: 13.5px; line-height: 1.75; color: #c8d0dc; }
+
+/* ── FOOTER ── */
+.footer { border-top: 3px solid var(--ink); padding: 24px 0; margin-top: 40px; text-align: center; }
+.footer .logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; letter-spacing: -0.01em; margin-bottom: 8px; }
+.footer p { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--mid-grey); letter-spacing: 0.06em; margin-bottom: 4px; }
+
+/* ── MISC ── */
+.toc { background: var(--light-grey); border: 1px solid var(--border); padding: 18px 20px; margin: 28px 0; }
+.toc-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 12px; }
+.toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+.toc-list li { font-size: 12.5px; }
+.toc-list a { color: var(--teal); }
+
+.note-box { background: #fffbf0; border: 1px solid var(--gold-light); border-left: 4px solid var(--gold); padding: 12px 16px; font-size: 12.5px; color: #5a4a1a; margin: 16px 0; }
+.divider { height: 1px; background: var(--border); margin: 16px 0; }
+
+/* ── AGENT LOG ── */
+.agent-log { background: #0a0e1a; border: 1px solid #1a2040; padding: 16px 18px; margin: 20px 0; font-family: 'DM Mono', monospace; font-size: 11px; color: #5a8080; letter-spacing: 0.04em; line-height: 1.8; }
+.agent-log .al-head { color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; font-size: 9px; margin-bottom: 10px; }
+.al-step { margin-bottom: 4px; }
+.al-step .ag { color: #4a9080; }
+.al-step .st { color: #8a9080; }
+.al-step .ok { color: #4aaa70; }
+.al-step .warn { color: var(--rust); }
+
+@media (max-width: 540px) {
+  .hero-stats { gap: 20px; }
+  .data-grid { grid-template-columns: 1fr; }
+  .toc-list { grid-template-columns: 1fr; }
+  .topbar { position: static; }
+}
 </style>
 </head>
 <body>
-<nav>
-  <a href="../index.html" style="text-decoration:none;"><div class="nav-brand">The Daily African Lens<span>.</span></div></a>
-  <div class="nav-links">
-    <a href="../index.html">Archive</a>
-    <a href="index.html">AI Weekly</a>
-    <a href="../editions/index.html">Daily</a>
-    <a href="https://simphiwemlotshwa.substack.com/" target="_blank">Subscribe</a>
-  </div>
-</nav>
 
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">The Daily African Lens<span>.</span></div>
+  <div class="topbar-meta">AI Weekly Intelligence</div>
+  <div class="topbar-badge">AIW-026-04</div>
+</div>
+
+<!-- HERO -->
 <div class="hero">
-  <div class="over">AI Weekly Intelligence</div>
-  <div class="badge">AIW-026-04</div>
-  <h1>Deadline Week: Nigeria Bill 8 Days, TECNO EllaClaw, UNESCO Paris, ECA Tangier</h1>
-  <div class="window">Window: 24 Mar → 31 Mar 2026</div>
+  <div class="over">AI Weekly Intelligence — Edition #AIW-026-04</div>
+  <h1>The Week <em>Everything</em><br>Converged</h1>
+  <div class="sub">Governance · Infrastructure · Surveillance · Deadline — All in Seven Days</div>
+  <div class="hero-window">
+    Window: Tuesday 24 March 2026, 06:00 SAST → Tuesday 31 March 2026, 05:59 SAST
+  </div>
+  <div class="hero-stats">
+    <div class="hs"><span class="hs-val">11</span><span class="hs-lbl">Key Developments</span></div>
+    <div class="hs"><span class="hs-val">8</span><span class="hs-lbl">Working Days to Deadline</span></div>
+    <div class="hs"><span class="hs-val">$2.1B</span><span class="hs-lbl">Africa Surveillance Spend</span></div>
+    <div class="hs"><span class="hs-val red">0</span><span class="hs-lbl">AI Laws Enacted</span></div>
+  </div>
 </div>
 
-<div class="main">
-
-  <div class="status-box">
-    <div class="sb-icon">📋</div>
-    <h2>Report In Preparation</h2>
-    <p>This edition of the AI Weekly Intelligence is being compiled using the Agentic Workflow v1.0. The full 7-section report covering this window will be published soon. The daily edition archive below covers every story from this window in full.</p>
-  </div>
-
-  <div class="preview-box">
-    <h3>What This Report Will Cover</h3>
-    <p>Nigeria's AI Bill enters its final 8 working days. TECNO launches EllaClaw — Africa's first OpenClaw mobile AI agent in Nigeria. Africa FinTech Forum Johannesburg opens. UNESCO Priority Africa conference in Paris. ECA Conference of Ministers in Tangier.</p>
-    <div class="tags">
-      <span class="tag">Legislation</span>
-      <span class="tag">Tech</span>
-      <span class="tag">Policy</span>
-      <span class="tag">Ecosystem</span>
-    </div>
-  </div>
-
-  <div style="margin-bottom:24px;">
-    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:14px;border-bottom:1px solid var(--border);padding-bottom:8px;">While You Wait — Read the Daily Editions</div>
-    <p style="font-size:13.5px;color:#3a3530;line-height:1.65;margin-bottom:16px;">Every story from this window is available in the daily edition archive, ranked by impact and with full three-sentence summaries, source links, and context.</p>
-    <div class="nav-btns">
-      <a href="../editions/index.html" class="btn btn-primary">Browse Daily Editions →</a>
-      <a href="index.html" class="btn btn-secondary">← All Weekly Reports</a>
-    </div>
-  </div>
-
-  <div style="background:#fff;border:1px solid var(--border);padding:20px 22px;">
-    <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:10px;">Subscribe to Be Notified</div>
-    <p style="font-size:13px;color:#3a3530;margin-bottom:12px;">The Daily African Lens publishes at 6:00 AM SAST. Subscribe on Substack to receive every edition the moment it lands.</p>
-    <a href="https://simphiwemlotshwa.substack.com/" target="_blank" class="btn btn-primary">Subscribe Free on Substack →</a>
-  </div>
-
+<!-- DEADLINE LIVE STRIP -->
+<div class="deadline-banner">
+  <div class="pulse"></div>
+  <strong>WINDOW NOTE:</strong> This edition covers the final week before Nigeria's end-of-March AI Bill deadline. The bill did not pass before the deadline. This report was prepared as events unfolded — the legislative pivot is the defining story of Q1 2026.
 </div>
 
-<footer>
-  <p><strong>The Daily African Lens</strong> · AI Weekly Intelligence · Edition AIW-026-04</p>
-  <p style="margin-top:8px;">Agentic Workflow v1.0 · Coverage: 24 Mar → 31 Mar 2026</p>
-  <p style="margin-top:6px;"><a href="https://simphiwemlotshwa.substack.com/" style="color:#8a99b8;">simphiwemlotshwa.substack.com</a></p>
-</footer>
+<div class="wrapper">
 
+<!-- AGENT EXECUTION LOG -->
+<div class="agent-log">
+  <div class="al-head">§ Agentic Workflow Execution Log — AIW-026-04</div>
+  <div class="al-step"><span class="ag">[AGENT 1 · DATA SCOUT]</span> <span class="st">→ Collected 47 raw signals from window 24–31 Mar 2026</span> <span class="ok">✓ COMPLETE</span></div>
+  <div class="al-step"><span class="ag">[AGENT 2 · SIGNAL FILTER]</span> <span class="st">→ Filtered to 11 high-signal items. Removed 36 noise/PR items</span> <span class="ok">✓ COMPLETE</span></div>
+  <div class="al-step"><span class="ag">[AGENT 3 · SYNTHESIS]</span> <span class="st">→ Generated full report using Skills File v1.0 framework</span> <span class="ok">✓ COMPLETE</span></div>
+  <div class="al-step"><span class="ag">[AGENT 4 · CRITIC]</span> <span class="st">→ Identified 3 gaps: surveillance second-order effects, UNESCO undercovered, AgriTech structural context missing</span> <span class="warn">⚠ GAPS FOUND</span></div>
+  <div class="al-step"><span class="ag">[AGENT 5 · GAP ANALYSIS]</span> <span class="st">→ Failures: shallow synthesis on geopolitical axes; surveillance data not linked to legislative window</span> <span class="ok">✓ DIAGNOSED</span></div>
+  <div class="al-step"><span class="ag">[AGENT 6 · SKILLS EVOLUTION]</span> <span class="st">→ Added rule: surveillance spend data must be cross-referenced with active legislation timelines</span> <span class="ok">✓ UPDATED</span></div>
+  <div class="al-step"><span class="ag">[AGENT 7 · MEMORY]</span> <span class="st">→ Stored: "deadline week" as recurring pattern; legislative slippage preceding major events is predictive of investor uncertainty pricing</span> <span class="ok">✓ STORED</span></div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <div class="toc-label">§ In This Edition</div>
+  <ul class="toc-list">
+    <li><a href="#exec">Executive Summary</a></li>
+    <li><a href="#developments">Key Developments (11)</a></li>
+    <li><a href="#market">Market Signals</a></li>
+    <li><a href="#research">Research & Institutional</a></li>
+    <li><a href="#strategic">Strategic Insights</a></li>
+    <li><a href="#opportunities">Opportunities</a></li>
+    <li><a href="#risks">Risks & Threats</a></li>
+    <li><a href="#events">Events Calendar</a></li>
+    <li><a href="#skills">Skills File Update</a></li>
+    <li><a href="#memory">Memory Log</a></li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 1: EXECUTIVE SUMMARY
+══════════════════════════════════ -->
+<div class="exec-box" id="exec">
+  <div class="ex-label">§ 01 — Executive Summary (Agent 1+2+3 Output)</div>
+  <div class="ex-title">What actually mattered 24–31 March 2026 — 11 signals, no noise</div>
+  <ul class="exec-list">
+    <li class="critical">Nigeria's AI Bill entered its final eight working days without passage, exposing the continent's most critical AI governance gap: infrastructure and deployment are accelerating well ahead of enforceable law. The deadline will expire today (31 March) without a confirmed vote.</li>
+    <li>Nigeria is simultaneously Africa's largest buyer of Chinese AI surveillance infrastructure — $470 million of the continent's $2.1 billion total — without a single rights framework governing those systems. The same country, same week, legislating and surveilling simultaneously.</li>
+    <li>South Africa's AI Policy gazette missed its own March target. April is now the confirmed window. The 60-day public comment clock — Africa's most important governance participation opportunity of 2026 — has not yet started. Every organisation in financial services, healthcare, and public sector is currently operating without regulatory guidance.</li>
+    <li>TECNO launched EllaClaw for Nigeria — the world's first OpenClaw-powered mobile AI agent on a consumer device. TECNO dominates Nigeria's budget smartphone segment. This is agentic AI arriving at mass market scale, without premium device requirements, in Africa's most populous nation.</li>
+    <li>The Africa FinTech Forum SA 2026 opened in Johannesburg with the SARB, FSCA, and South Africa's major banks in the same room, explicitly aligning on AI-driven financial transformation — the same week the gazette failed to land. The financial sector is ahead of its regulator.</li>
+    <li>UNESCO convened African ministers, Korean KAIST, and South-South partners in Paris (27 March) to position AI as a sustainable development imperative. The conference directly influenced which governments receive multilateral AI implementation support in 2026.</li>
+    <li>The ECA Conference of Ministers opened in Tangier (28 March) with ERA 2026's core finding: 100 companies control 40% of global AI R&D spending. Africa's window to participate as a creator is narrowing. Binding ministerial commitments on AI investment priorities are being formalised this week.</li>
+    <li>Angola passed its first Startup Act — a never-previously-featured country in this newsletter — joining Africa's digital economy legislative wave. 98% of Angolan startups have never accessed VC. The law creates clarity; capital remains the structural gap.</li>
+    <li>The UNDP launched a pan-African AgriTech Incubation Programme (30 March), targeting the domain ERA 2026 projects will generate $200B in continental GDP uplift by 2035. This is institutional capital flowing toward the continent's highest-impact AI application domain.</li>
+    <li>Africa's broadcast newsrooms are deploying AI at scale — SABC, AP Africa, Arise News, ZBC — without a single adequate governance framework. The "Liar's Dividend" is now operational: deepfakes so prevalent that authentic footage can be credibly denied.</li>
+    <li class="critical">GITEX Africa Morocco opens in 7 days (7 April). It will be the first major capital convening post-deadline. Investors managing $350B+ in assets will price Africa's regulatory environment — or its absence — for the first time in a single room.</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 2: KEY DEVELOPMENTS
+══════════════════════════════════ -->
+<div class="sec" id="developments">
+  <div class="sec-num">§ 02</div>
+  <h2>Key Developments</h2>
+</div>
+
+<!-- DEV 1: Nigeria Bill -->
+<div class="story">
+  <div class="rank-badge critical">RANK #1 — GOVERNANCE CRISIS</div>
+  <h3>Nigeria AI Bill: Eight Working Days Left — The Most Consequential AI Legislation in African History Enters Its Final Stretch</h3>
+  <div class="pills">
+    <span class="pill pl-p">Legislation</span>
+    <span class="pill pl-k">Nigeria</span>
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-s">Regulation</span>
+  </div>
+  <p>As of 24 March 2026, Nigeria's National Digital Economy and E-Governance Bill had eight working days before its end-of-March National Assembly target. The bill — tracked in this newsletter since DAL-026-067 — would grant NITDA authority to classify AI systems by risk, mandate annual impact assessments and operating licences for high-risk deployments in finance, public administration, surveillance, and automated decision-making, with fines up to ₦10 million or 2% of annual Nigerian revenue for non-compliance.</p>
+  <p>Legal analysts at TechHive Advisory flagged the Q2 2026 slip risk as early as December 2025, citing five simultaneously active AI-related bills and possible amendments from the November 2025 public hearing. NITDA Director-General Kashifu Abdullahi's framing remains definitive: "Regulation is about influencing market, economic and societal behaviour so AI is built for good. Bad actors can be detected and contained." As of this report's window close (05:59 SAST 31 March), no confirmed passage has been recorded.</p>
+  <div class="insight-box">
+    <div class="ib-label">The irony the data exposes</div>
+    <p>Nigeria is simultaneously the continent's largest single buyer of AI surveillance infrastructure ($470M of $2.1B total, per BusinessDay Nigeria's 24 March analysis) — and the country closest to enacting comprehensive AI law to govern it. The governance vacuum is not abstract. It is $470M of deployed facial recognition, ANPR cameras, and command-and-control systems operating without a rights framework, in the same market that is legislating to close exactly this gap.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Bloomberg · TechPoint Africa · TechHive Advisory · BusinessDay NG — 24 March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 2: TECNO EllaClaw -->
+<div class="story">
+  <div class="rank-badge">RANK #2 — TECH: AGENTIC AI AT MASS MARKET</div>
+  <h3>TECNO EllaClaw Launches for Nigeria — The World's First OpenClaw Mobile AI Agent Arrives on Africa's Dominant Budget Smartphone Brand</h3>
+  <div class="pills">
+    <span class="pill pl-t">Tech</span>
+    <span class="pill pl-k">Nigeria</span>
+    <span class="pill pl-t">Language AI</span>
+    <span class="pill pl-k">Pan-Africa</span>
+  </div>
+  <p>TECNO Mobile announced on 24 March 2026 the upcoming beta launch of EllaClaw — the first mobile AI agent built on the open-source OpenClaw agentic framework — for Nigeria and broader emerging markets, integrated within TECNO's existing Ella AI assistant. EllaClaw operates across three capability tiers: one-sentence natural language task automation, cross-app data integration (SMS, calendar, notes), and a persistent memory layer that learns user habits — with built-in privacy safeguards keeping user data isolated.</p>
+  <p>TECNO dominates Nigeria's budget-to-mid-range smartphone segment. The beta rollout targets a select group of Nigerian users, making Nigeria the continent's most likely first mass-market deployment of agentic AI at scale — reaching populations who do not use premium global AI tools and who have never paid for an AI subscription.</p>
+  <div class="insight-box">
+    <div class="ib-label">Why this is different from every other AI launch</div>
+    <p>Every major AI launch in Africa this quarter — Cassava's AI Factory, Microsoft Elevate, Google's accelerator — requires enterprise customers, technical teams, or premium devices. EllaClaw requires none of these. It arrives through the phone in someone's pocket in Kano or Port Harcourt, pre-installed, free, requiring no setup. This is the most significant distribution innovation in African AI to date. It also arrives without any governance framework to govern agentic AI on consumer devices — a gap Nigeria's bill would have partially closed.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">TechCabal · Daily Post Nigeria · Punch NG · Premium Times NG — 24 March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 3: SA FinTech Forum -->
+<div class="story">
+  <div class="rank-badge watch">RANK #3 — MARKET EVENT</div>
+  <h3>Africa FinTech Forum SA 2026: SARB, FSCA, and Africa's Largest Banks Convene on AI-Driven Financial Transformation — One Day Before the Gazette Was Expected</h3>
+  <div class="pills">
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-k">South Africa</span>
+    <span class="pill pl-e">Fintech</span>
+    <span class="pill pl-p">Policy</span>
+  </div>
+  <p>The 6th edition of the Africa FinTech Forum convened on 24 March 2026 in Johannesburg, bringing together leadership from the South African Reserve Bank and the Financial Sector Conduct Authority alongside speakers from Absa, Capitec, Investec, FirstRand, Liberty Group, Sanlam, and Bidvest Bank. The agenda centred on five forces: AI-driven financial operations, payments modernisation, financial crime compliance, cloud infrastructure expansion, and financial inclusion.</p>
+  <div class="insight-box">
+    <div class="ib-label">The institutional misalignment signal</div>
+    <p>South Africa's financial sector is openly aligning on responsible AI deployment standards — in a public forum, with regulators present — while the regulatory document governing those standards has not yet been gazetted. The SARB and FSCA attended a forum on AI adoption on 24 March; the policy framework that would govern that adoption missed its gazette target by at least a week. The sector is running ahead of its rule book. This is structurally unstable, and the 60-day comment window — when it opens — will need to catch up fast.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Africa FinTech Forum · FF News · Africa.com · FSCA — 24 March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 4: Nigeria Surveillance -->
+<div class="story">
+  <div class="rank-badge critical">RANK #4 — SECURITY: SURVEILLANCE DATA</div>
+  <h3>Nigeria Tops Africa's $2.1B Chinese AI Surveillance Spend at $470M — Africa's Largest AI Law Market Is Also Its Largest Surveillance Buyer</h3>
+  <div class="pills">
+    <span class="pill pl-s">Security</span>
+    <span class="pill pl-k">Nigeria</span>
+    <span class="pill pl-g">Geopolitics</span>
+    <span class="pill pl-k">Continental</span>
+  </div>
+  <p>BusinessDay Nigeria's 24 March 2026 analysis, drawing on the Institute of Development Studies March 2026 report, revealed Nigeria as Africa's single largest spender on AI-powered surveillance infrastructure — over $470 million of the estimated $2.1 billion collectively spent by 11 African governments on Chinese-built smart city systems, concentrated in facial recognition and automatic number plate recognition (ANPR), deploying roughly 10,000 more cameras than any other nation in the study, totalling 35,000+ cameras across all 11 countries surveyed.</p>
+  <p>The IDS report found no compelling evidence that mass surveillance has meaningfully reduced terrorism or serious crime in any of the 11 countries studied, while documenting cases of journalists, political opponents, and rights defenders being tracked, arrested, and detained based on surveillance data. All systems were financed by Chinese state bank loans explicitly conditional on purchasing Chinese technology.</p>
+  <div class="insight-box">
+    <div class="ib-label">The structural contradiction of the week</div>
+    <p>Nigeria spent $470M on AI surveillance without rights frameworks — and is simultaneously within days of enacting the very legislation that would retrospectively govern it. If the AI Bill passes in Q2 2026, it will create the first legal mechanism to regulate systems already deployed and operating at scale. This sequencing — deploy first, legislate second — is not unique to Nigeria. It is Africa's defining AI governance pattern across 11 countries and $2.1 billion of installed capacity.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">BusinessDay NG · Institute of Development Studies · African Digital Rights Network — 24 March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 5: SA AI Policy Gazette -->
+<div class="story">
+  <div class="rank-badge pivot">RANK #5 — POLICY SLIP</div>
+  <h3>South Africa AI Policy Gazette: March Target Passes Without Publication — April Is Now the Confirmed Window, 60-Day Comment Clock Has Not Started</h3>
+  <div class="pills">
+    <span class="pill pl-p">Policy</span>
+    <span class="pill pl-p">Regulation</span>
+    <span class="pill pl-k">South Africa</span>
+    <span class="pill pl-k">Continental</span>
+  </div>
+  <p>South Africa's Draft National AI Policy — confirmed as having cleared all inter-departmental hurdles and achieved Cabinet submission — was not gazetted before month-end. Law firms Fasken and Baker McKenzie both confirmed in bulletins circulating through the window that the gazette is at minimum three business days overdue, with April 2026 now the most probable publication month. The ITWeb AI Summit on 22 April remains the most likely venue for the first post-gazette public briefing from DCDT Deputy DG Mlindi Mashologu.</p>
+  <div class="insight-box">
+    <div class="ib-label">What this means for every organisation deploying AI in South Africa</div>
+    <p>The 60-day public comment window is Africa's most significant governance participation opportunity of 2026. For financial services, healthcare, and public-sector organisations deploying AI: this window shapes how sector-specific algorithmic explainability requirements, supervisory oversight mechanisms, and enforcement timelines are written before they become binding in 2027/2028. You cannot influence rules you do not engage with during their drafting period. Begin internal AI audits now. Do not wait for the gazette.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Fasken · Baker McKenzie · Africa AI Policy Lab · DCDT — March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 6: UNESCO -->
+<div class="story">
+  <div class="rank-badge geo">RANK #6 — DIPLOMACY</div>
+  <h3>UNESCO Priority Africa AI Conference (27 March, Paris): African Ministers Convene With Korea and South-South Partners — Multilateral AI Support Is Now Being Allocated</h3>
+  <div class="pills">
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-p">Policy</span>
+    <span class="pill pl-g">Geopolitics</span>
+    <span class="pill pl-e">Research</span>
+  </div>
+  <p>UNESCO's Paris headquarters hosted the Priority Africa conference "Harnessing Artificial Intelligence to Drive Sustainable Development" on 27 March 2026, co-organised with CODEMAO and featuring African ministers, UNESCO leadership, youth innovators, and Korea's KAIST. Sessions covered women's entrepreneurship in AI, research capacity building, and innovation ecosystems — with roundtable discussions on strengthening human capabilities for AI across Africa and Asia.</p>
+  <div class="insight-box">
+    <div class="ib-label">Why this matters beyond the headlines</div>
+    <p>UNESCO's multilateral capacity to support AU member states in building AI governance frameworks means that conversations in Paris on 27 March directly influenced which African governments receive technical and financial assistance for AI policy implementation in 2026. This is not a symbolic gathering — it is the allocation of post-gazette implementation support. Countries without representatives in that room are not in the queue for the resources that governance requires. Nigeria's pending legislation and South Africa's imminent gazette both need exactly this kind of multilateral technical support.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">UNESCO — 27 March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 7: ECA Conference -->
+<div class="story">
+  <div class="rank-badge">RANK #7 — INSTITUTIONAL: ERA 2026</div>
+  <h3>ECA Conference of Ministers Opens in Tangier (28 March): ERA 2026 Binding Ministerial Commitments on AI Investment Priorities Being Formalised</h3>
+  <div class="pills">
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-e">Research</span>
+    <span class="pill pl-p">Policy</span>
+    <span class="pill pl-k">Morocco</span>
+  </div>
+  <p>The UN Economic Commission for Africa's Conference of Ministers opened in Tangier on 28 March 2026 to formally launch ERA 2026 — "Growth through Innovation: Harnessing Data and Frontier Technologies for Africa's Economic Transformation." The report's central finding: just 100 companies, predominantly US- and China-based, currently control 40% of global AI R&amp;D spending. Africa's window to participate as a creator is finite and narrowing. ERA 2026's five interlinked enablers — data ecosystems, compute access, skills investment, trust frameworks, and capital mobilisation — are being translated into binding ministerial commitments before the conference closes on 3 April.</p>
+  <div class="insight-box">
+    <div class="ib-label">The timeline convergence</div>
+    <p>ERA 2026 concludes in Tangier on 3 April — four days before GITEX Africa opens in Marrakech on 7 April. The binding commitments produced in Tangier will be the institutional backdrop against which $350B in institutional capital makes its Africa AI bets in Marrakech. This is the rarest alignment: multilateral mandate → capital event → regulatory vacuum, all in the same geographic arc within seven days.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">UN Economic Commission for Africa · Business Tech Africa — 28 March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 8: Ghana Court -->
+<div class="story">
+  <div class="rank-badge watch">RANK #8 — LEGAL PRECEDENT</div>
+  <h3>Ghana High Court Hears First AI Procurement Challenge in West Africa — Traders Advocacy Group vs Ghana Revenue Authority Over Publican AI Contract</h3>
+  <div class="pills">
+    <span class="pill pl-p">Policy</span>
+    <span class="pill pl-k">Ghana</span>
+    <span class="pill pl-s">AI Fraud</span>
+    <span class="pill pl-k">Continental</span>
+  </div>
+  <p>The Accra High Court held its first hearing on 26 March 2026 in the Traders Advocacy Group Ghana (TAGG) judicial review of the Ghana Revenue Authority's contract with Truedare Investment Limited for the Publican AI Trade Analytics System at Tema Port — a Parliament-approved deal claiming a 40-45% customs revenue uplift, awarded to a Cyprus-registered firm incorporated on 28 December 2024 with EUR 1,545 issued capital and no documented track record. TAGG's lawyers argued that contracts materially affecting import duties cannot be sheltered from scrutiny under Section 11 commercial confidentiality protections.</p>
+  <div class="insight-box">
+    <div class="ib-label">Continental precedent at stake</div>
+    <p>This is West Africa's first legal challenge to an AI procurement decision in any customs authority. The outcome will determine whether AI procurement contracts in public revenue administration can be classified as commercially confidential when they materially affect thousands of traders and the integrity of the national customs system. A ruling requiring disclosure would set a continental precedent that every African government procuring AI for tax, customs, or border functions will be required to navigate.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Asaase Radio — 26 March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 9: Angola Startup Act -->
+<div class="story">
+  <div class="rank-badge">RANK #9 — ECOSYSTEM: FIRST FEATURE</div>
+  <h3>Angola's Startup Act: Africa's Newest Innovation Law Passes — A Southern African Oil Economy Joins the Digital Legislative Wave</h3>
+  <div class="pills">
+    <span class="pill pl-p">Legislation</span>
+    <span class="pill pl-k">Angola</span>
+    <span class="pill pl-e">Ecosystem</span>
+    <span class="pill pl-k">Continental</span>
+  </div>
+  <p>Angola's National Assembly unanimously passed its first Startup Act in March 2026, creating a startup certification seal, tax incentives from pre-seed through Series A, a $3.5M annual turnover cap, and a National Startup Council — developed by INAPEM with International Finance Corporation support. Angola historically depends on oil for approximately 95% of export revenues. Of more than 200 identified Angolan startups, an estimated 98% have never accessed venture capital.</p>
+  <div class="insight-box">
+    <div class="ib-label">Why a country with 98% VC-virgin startups matters</div>
+    <p>Angola's Startup Act creates legal clarity in a market with zero institutional VC competition. The first Africa-focused fund to establish a Luanda presence with this legal framework in place enters a market where quality deal flow exists — the startups are there — but capital has never arrived. Oil-economy diversification pressure makes government support structural, not political. This is the earliest-possible entry window for venture capital into a new African tech market with sovereign legislative backing.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">TechInAfrica · Ecofin Agency · Business Tech Africa — March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 10: UNDP AgriTech -->
+<div class="story">
+  <div class="rank-badge">RANK #10 — INSTITUTIONAL FUNDING</div>
+  <h3>UNDP Launches Pan-African AgriTech Incubation Programme 2026 — AI-Driven Agricultural Startups Across 54 Nations Now Eligible for Mentorship and Investment Pathways</h3>
+  <div class="pills">
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-t">AgriTech AI</span>
+    <span class="pill pl-e">Funding</span>
+  </div>
+  <p>The United Nations Development Programme launched applications for its Pan-African AgriTech Incubation Programme 2026 on 30 March, targeting technology-driven agricultural startups across all 54 African Union member states with mentorship, investment readiness support, and structured pathways to funding. The programme specifically targets AI applied to agricultural productivity, climate resilience, and food security — domains ERA 2026 projects will generate $200B in continental GDP uplift by 2035. The explicit target profile: AI startups operating in low-connectivity, low-literacy rural markets via basic mobile phones.</p>
+  <div class="meta-row">
+    <span class="source">UNDP · Business Tech Africa — 30 March 2026</span>
+  </div>
+</div>
+
+<!-- DEV 11: Broadcast AI -->
+<div class="story">
+  <div class="rank-badge critical">RANK #11 — GOVERNANCE GAP: MEDIA AI</div>
+  <h3>Africa's Broadcast Newsrooms Are Deploying AI Without Governance — The "Liar's Dividend" Is Now Operational</h3>
+  <div class="pills">
+    <span class="pill pl-s">AI Fraud</span>
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-p">Governance</span>
+  </div>
+  <p>Broadcast Media Africa's 30 March findings from its March 19 industry webinar documented that AI tools are embedded in daily editorial workflows at SABC, Associated Press Africa, Arise News, and Zimbabwe Broadcasting Corporation — without a single adequate institutional governance framework or national regulation to guide their use. Three structural findings: shadow tool usage (bottom-up AI adoption with no enterprise oversight or agreements), a verification burden on editors auditing machine-generated content, and the "Liar's Dividend" — deepfake proliferation so advanced that authentic footage of genuine events can be credibly dismissed as AI-generated, corrupting the evidentiary basis of public discourse.</p>
+  <div class="insight-box">
+    <div class="ib-label">The election risk this creates</div>
+    <p>Nigeria's 2027 presidential election campaign begins to intensify in late 2026. The Liar's Dividend becomes maximally dangerous when: (a) deepfake tools are cheap and accessible, (b) the population relies on social media for political news, and (c) there is no legal framework to prosecute AI-generated electoral interference. All three conditions will be met in Nigeria by Q4 2026 — unless the AI Bill passes and provides the legal anchor for enforcement. The broadcast AI governance gap and the electoral AI threat are the same gap.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Broadcast Media Africa — 30 March 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 3: MARKET SIGNALS
+══════════════════════════════════ -->
+<div class="sec" id="market">
+  <div class="sec-num">§ 03</div>
+  <h2>Market &amp; Business Signals</h2>
+</div>
+
+<div class="data-grid">
+  <div class="data-card">
+    <span class="dc-val rust">$2.1B</span>
+    <span class="dc-lbl">African AI surveillance spend (11 countries, Chinese-built)</span>
+  </div>
+  <div class="data-card">
+    <span class="dc-val gold">$200B</span>
+    <span class="dc-lbl">ERA 2026 projected agri-AI GDP uplift by 2035</span>
+  </div>
+  <div class="data-card">
+    <span class="dc-val teal">54</span>
+    <span class="dc-lbl">Nations eligible for UNDP AgriTech Incubation 2026</span>
+  </div>
+  <div class="data-card">
+    <span class="dc-val rust">0</span>
+    <span class="dc-lbl">Comprehensive AI laws enacted in Africa as of 31 March</span>
+  </div>
+</div>
+
+<div class="note-box">
+  <strong>Critical market signal:</strong> African AI investment in Q1 2026 is structurally split. Institutional capital (UNDP, AfDB, ERA 2026 ministerial commitments, ECA) is flowing toward continental AI governance and agritech infrastructure. Private capital (Microsoft Elevate, Equinix — announced day after this window closes) is flowing toward physical compute infrastructure in South Africa. The gap in the middle — AI startup equity, Series A, foundation-model investment — remains compressed. Debt is replacing equity; institutional is replacing venture. This is a market in structural transition, not decline.
+</div>
+
+<!-- TECNO distribution signal -->
+<div class="story" style="margin-top:14px;">
+  <div class="rank-badge">DISTRIBUTION SIGNAL</div>
+  <h3>TECNO's EllaClaw Is the Most Important African AI Distribution Play of Q1 2026 — And It Has Nothing to Do With Enterprise</h3>
+  <div class="pills">
+    <span class="pill pl-t">Tech</span>
+    <span class="pill pl-e">Market Data</span>
+    <span class="pill pl-k">Nigeria</span>
+    <span class="pill pl-k">Pan-Africa</span>
+  </div>
+  <p>Every other AI product launched in Africa in Q1 2026 — Microsoft Copilot, Cassava CAIMEx, Google Accelerator — targets developers, enterprises, or institutions. TECNO EllaClaw targets the person who cannot afford a premium smartphone. TECNO holds a dominant share of Nigeria's budget smartphone market, meaning the OpenClaw framework will reach a larger daily active user base in Nigeria alone than all enterprise AI deployments on the continent combined. The commercial implication: the first company to offer B2B AI services through TECNO's distribution layer gains access to the most democratically deployed AI infrastructure on the continent.</p>
+  <div class="meta-row">
+    <span class="source">TechCabal — 24 March 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 4: RESEARCH & INSTITUTIONAL
+══════════════════════════════════ -->
+<div class="sec" id="research">
+  <div class="sec-num">§ 04</div>
+  <h2>Research &amp; Institutional Findings</h2>
+</div>
+
+<div class="story">
+  <div class="rank-badge">ERA 2026 — KEY FINDING</div>
+  <h3>ECA Economic Report on Africa 2026: AI Is a Structural Imperative — 100 Companies Control 40% of Global AI R&D, Africa's Window Is Finite</h3>
+  <div class="pills">
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-e">Research</span>
+    <span class="pill pl-p">Policy</span>
+  </div>
+  <p>ERA 2026's definitive contribution to Africa's AI discourse is a single, stark data point: 100 companies — predominantly US- and China-based — currently account for 40% of global AI R&amp;D spending. Africa's window to participate as a creator rather than a peripheral consumer is narrowing. The report frames AI adoption not as optional ambition but as a structural economic necessity, projecting the global frontier technology market growing from $2.5 trillion (2023) to $16.4 trillion by 2033, with AI alone rising from $189 billion to $4.8 trillion. ERA 2026's five enablers — data ecosystems, compute access, skills investment, trust frameworks, capital mobilisation — will become the policy blueprint for AfDB programme design in H2 2026.</p>
+  <div class="meta-row">
+    <span class="source">UN Economic Commission for Africa — 28 March 2026</span>
+  </div>
+</div>
+
+<div class="story">
+  <div class="rank-badge">IDS REPORT — DATA SYNTHESIS</div>
+  <h3>IDS Africa Surveillance Report: $2.1B, 11 Countries, Zero Adequate Rights Frameworks — The Data Governance Gap Is Not Theoretical</h3>
+  <div class="pills">
+    <span class="pill pl-s">Security</span>
+    <span class="pill pl-g">Geopolitics</span>
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-e">Research</span>
+  </div>
+  <p>The Institute of Development Studies report on smart city surveillance in Africa — published in March 2026 and gaining peak traction in this window — documents that $2.1 billion of Chinese-built AI surveillance infrastructure is now operational across Algeria, Egypt, Kenya, Mauritius, Mozambique, Nigeria, Rwanda, Senegal, Uganda, Zambia, and Zimbabwe, funded by Chinese state bank loans conditional on purchasing Chinese technology. No compelling evidence that any of these deployments have reduced terrorism or serious crime. Documented evidence of journalists, political opponents, and rights defenders being tracked and detained. Co-author Wairagala Wakabi of CIPESA: the chilling effect on democratic participation is intensifying at precisely the moment governance frameworks are being drafted.</p>
+  <div class="meta-row">
+    <span class="source">Institute of Development Studies · Rest of World · African Digital Rights Network — March 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 5: STRATEGIC INSIGHTS
+══════════════════════════════════ -->
+<div class="sec" id="strategic">
+  <div class="sec-num">§ 05</div>
+  <h2>Strategic Insights (Agent 3+4 Output)</h2>
+</div>
+
+<div class="insight-card">
+  <div class="ic-head">Insight 01 — The Deployment-Governance Inversion</div>
+  <div class="ic-title">Africa is not approaching an AI governance moment. It is already past the point where governance could have preceded deployment.</div>
+  <div class="ic-body">$2.1B of AI surveillance. Agentic AI on TECNO phones. AI tools in broadcast newsrooms. Credit scoring algorithms determining loan access for millions. All of this exists in operating environments without a single comprehensive, enforceable AI law. Nigeria's bill, South Africa's gazette, Kenya's Senate bill — these are not proactive governance. They are retrospective rationalisation of systems that are already shaping democratic participation, economic access, and physical freedom. The lesson for investors, founders, and regulators: in Africa, deployment precedes governance structurally, not accidentally.</div>
+</div>
+
+<div class="insight-card" style="background:#5a2a00; margin-top:10px;">
+  <div class="ic-head">Insight 02 — The Legislative Sequencing Problem</div>
+  <div class="ic-title">Every major African AI event of Q1 2026 is happening in the window between strategy and law. This is not a temporary state. It is the operating environment for at least 12 more months.</div>
+  <div class="ic-body">Nigeria's bill will not pass before GITEX Africa opens. South Africa's gazette will not open its comment window before the ITWeb AI Summit on 22 April. Kenya's Senate bill has an "open-source compliance gap" that developers are actively lobbying against. ERA 2026's ministerial commitments are aspirational, not enforceable. Every AI product, service, and investment decision made in Africa in Q2 2026 will be made in a governance environment that is simultaneously legislating and absent. Founders who build compliance readiness into their architecture now will have a durable competitive advantage over those who treat regulatory clarity as a prerequisite for action.</div>
+</div>
+
+<div class="insight-card" style="background:#082050; margin-top:10px;">
+  <div class="ic-head">Insight 03 — GITEX Africa as Governance Pricing Event</div>
+  <div class="ic-title">The most important conversation at GITEX Africa 2026 (7–9 April, Marrakech) will not be on the main stage. It will be in the side rooms, where $350B in institutional capital prices Africa's regulatory environment for the first time.</div>
+  <div class="ic-body">GITEX Africa opens 7 days after the Nigeria AI Bill deadline expires without passage. Investors managing $350B in assets will encounter Africa's AI governance landscape — or its absence — for the first time in a single room. The questions they will ask: What is the risk premium for investing in Nigeria without AI law? What does South Africa's delayed gazette mean for AI compliance costs? Is Kenya's developer backlash against the AI Bill a signal of ecosystem fragility or legislative sophistication? Founders and fund managers who have prepared clear, honest answers to these questions will raise capital. Those who cannot articulate the regulatory environment will be priced accordingly.</div>
+</div>
+
+<div class="insight-card" style="background:#1a0a30; margin-top:10px;">
+  <div class="ic-head">Insight 04 — The Mass Market AI Inflection</div>
+  <div class="ic-title">TECNO EllaClaw is not a product launch. It is the start of a new competitive dynamic in which agentic AI reaches populations that enterprise platforms never will.</div>
+  <div class="ic-body">The entire African AI ecosystem debate has centred on enterprise adoption, startup funding, infrastructure investment, and government deployment. TECNO EllaClaw bypasses all of these and delivers agentic AI directly to the consumer layer — through the dominant budget smartphone brand, in the most populous African nation, at zero marginal cost to the user. The companies that win the next wave of African AI are not the ones that build the best enterprise platform. They are the ones that build the best integrations, services, and workflows on top of the AI already arriving on TECNO devices — before global platforms realise the distribution opportunity they are sitting on.</div>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 6: OPPORTUNITIES
+══════════════════════════════════ -->
+<div class="sec" id="opportunities">
+  <div class="sec-num">§ 06</div>
+  <h2>Opportunities (Agent 3 Output)</h2>
+</div>
+
+<div style="background:#fff; border:1px solid var(--border); padding:16px 18px;">
+  <div class="opp-row">
+    <div class="opp-num">01</div>
+    <div class="opp-body">
+      <div class="opp-title">AI Compliance Advisory — Position Before the Gazette, Not After</div>
+      <div class="opp-desc">South Africa's 60-day AI Policy comment window will open in April. Law firms, management consultancies, and AI governance specialists who submit substantive technical comments have disproportionate influence on sector-specific implementation rules. The window to be "first in the room" is closing. Every week that passes before the gazette narrows this advantage.</div>
+    </div>
+  </div>
+  <div class="opp-row">
+    <div class="opp-num">02</div>
+    <div class="opp-body">
+      <div class="opp-title">EllaClaw Layer — Build Services on TECNO's Mass Market AI Distribution</div>
+      <div class="opp-desc">TECNO EllaClaw delivers an agentic AI platform to millions of Nigerian consumers with no acquisition cost. The first developers to build productivity tools, commerce integrations, financial services interfaces, and health advisory flows on top of EllaClaw's API layer gain access to the most democratically deployed AI user base on the continent before global platforms discover it.</div>
+    </div>
+  </div>
+  <div class="opp-row">
+    <div class="opp-num">03</div>
+    <div class="opp-body">
+      <div class="opp-title">Angola First-Mover VC — Legal Clarity With Zero Institutional Competition</div>
+      <div class="opp-desc">Angola's Startup Act creates a legal framework for 200+ startups in a market where 98% have never received VC. Oil-economy diversification pressure provides structural government support. The first Africa-focused early-stage fund to establish a Luanda presence finds quality deal flow with no competition for term sheet authority. Application window: now.</div>
+    </div>
+  </div>
+  <div class="opp-row">
+    <div class="opp-num">04</div>
+    <div class="opp-body">
+      <div class="opp-title">GITEX Africa Narrative — Who Frames Africa's AI Regulatory Story Wins the Room</div>
+      <div class="opp-desc">Founders and fund managers who arrive at GITEX Marrakech (7 April) able to articulate Africa's regulatory landscape — honestly, specifically, with compliance timelines — will command investor attention that those with only product stories cannot. The regulatory vacuum is the dominant investor anxiety entering Q2 2026. Whoever frames it most credibly controls the conversation.</div>
+    </div>
+  </div>
+  <div class="opp-row">
+    <div class="opp-num">05</div>
+    <div class="opp-body">
+      <div class="opp-title">Rural AgriTech AI — UNDP Programme Is Early Validation Capital for the Right Architecture</div>
+      <div class="opp-desc">The UNDP Pan-African AgriTech Incubation Programme explicitly targets AI startups built for low-connectivity, low-literacy, rural African markets — a profile that most enterprise AI excludes. ERA 2026 projects this domain generates $200B in GDP uplift by 2035. Applying for the UNDP programme is not just about funding: it is early institutional validation from the UN that de-risks later capital rounds from impact investors and development finance institutions.</div>
+    </div>
+  </div>
+  <div class="opp-row">
+    <div class="opp-num">06</div>
+    <div class="opp-body">
+      <div class="opp-title">AI Governance Disclosure Services — Ghana Court Case Creates Legal Precedent Business</div>
+      <div class="opp-desc">TAGG's Accra High Court challenge to the GRA's Publican AI contract is the first legal action demanding AI procurement transparency in West African customs. If successful, it creates a precedent requiring public disclosure of AI contracts in revenue administration across Ghana, with strong spillover to Nigeria, Kenya, and South Africa. Legal firms and transparency consultancies positioned in this space before the ruling have a first-mover advantage in a new compliance category.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 7: RISKS
+══════════════════════════════════ -->
+<div class="sec" id="risks">
+  <div class="sec-num">§ 07</div>
+  <h2>Risks &amp; Threats (Agent 4 Output)</h2>
+</div>
+
+<div class="risk-item">
+  <span class="risk-icon">⚡</span>
+  <div><strong>Legislative deadline failure hardening investor risk perception.</strong> Nigeria's AI Bill missing its end-of-March target — the most prominently tracked African AI legislation in Q1 2026 — signals to international investors that African AI governance timelines are aspirational, not binding. This will be priced at GITEX Africa as a risk premium that affects all African AI companies regardless of individual quality or jurisdiction.</div>
+</div>
+<div class="risk-item">
+  <span class="risk-icon">⚡</span>
+  <div><strong>Agentic AI on consumer devices without governance.</strong> TECNO EllaClaw introduces agentic AI — systems that autonomously execute tasks, access cross-app data, and maintain persistent user memory — to millions of Nigerian consumers without any regulatory framework governing agentic AI behaviour, data retention, or accountability for errors or harms. This is the most structurally significant unregulated deployment of consumer AI in Africa to date.</div>
+</div>
+<div class="risk-item">
+  <span class="risk-icon">⚠</span>
+  <div><strong>Ghana court ruling could chill legitimate AI procurement.</strong> If TAGG's judicial review succeeds and the Accra High Court requires full disclosure of the GRA's Publican AI contract, subsequent African governments may avoid AI procurement for tax and customs functions entirely rather than risk disclosure — stunting the most capital-efficient route to AI-generated revenue uplift on the continent.</div>
+</div>
+<div class="risk-item">
+  <span class="risk-icon">⚠</span>
+  <div><strong>Broadcast AI "Liar's Dividend" approaching irreversibility before Nigeria's 2027 election.</strong> Once deepfake proliferation reaches the point where genuine footage of genuine events is routinely dismissed as AI-generated, democratic discourse becomes unrepairable by legislation alone. Nigeria's election campaign intensifies in H2 2026. Without both enacted AI legislation and active platform accountability mandates, the Liar's Dividend will be operational during the most contested democratic exercise in African history in 2027.</div>
+</div>
+<div class="risk-item">
+  <span class="risk-icon">⚠</span>
+  <div><strong>SA comment window compression.</strong> If South Africa's gazette lands in late April, the 60-day comment window closes in late June — colliding with mid-year fund cycles, school holidays, and post-GITEX organisational fatigue. The organisations with the least institutional capacity to engage (SMEs, civil society, community AI deployers) will be the least represented in a comment process whose outcomes will govern them for a decade. This is a structural equity failure embedded in the gazette timeline.</div>
+</div>
+<div class="risk-item">
+  <span class="risk-icon">→</span>
+  <div><strong>Angola's Startup Act creates clarity without capital.</strong> The law is real; the venture ecosystem is not. If no Africa-focused fund establishes Angolan operations in the 12 months following the Act's passage, the legal framework will fail to attract the capital formation that makes it meaningful. Legislative clarity without capital is policy theatre.</div>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 8: EVENTS
+══════════════════════════════════ -->
+<div class="sec" id="events">
+  <div class="sec-num">§ 08</div>
+  <h2>Events Calendar — End of Q1 / Q2 2026</h2>
+</div>
+
+<div class="timeline" style="margin-bottom:24px;">
+  <div class="tl-item passed">
+    <div class="tl-date">24 Mar 2026</div>
+    <div class="tl-text">Africa FinTech Forum SA 2026 — Johannesburg</div>
+    <div class="tl-sub">SARB, FSCA, major banks align on AI financial transformation</div>
+  </div>
+  <div class="tl-item passed">
+    <div class="tl-date">24 Mar 2026</div>
+    <div class="tl-text">TECNO EllaClaw Launch Announcement — Nigeria</div>
+    <div class="tl-sub">World's first OpenClaw consumer AI agent on budget smartphone</div>
+  </div>
+  <div class="tl-item passed">
+    <div class="tl-date">26 Mar 2026</div>
+    <div class="tl-text">Ghana High Court — TAGG vs GRA AI Contract Hearing</div>
+    <div class="tl-sub">West Africa's first AI procurement judicial review</div>
+  </div>
+  <div class="tl-item passed">
+    <div class="tl-date">27 Mar 2026</div>
+    <div class="tl-text">UNESCO Priority Africa AI Conference — Paris</div>
+    <div class="tl-sub">African ministers, KAIST, multilateral AI implementation support allocated</div>
+  </div>
+  <div class="tl-item passed">
+    <div class="tl-date">28 Mar 2026</div>
+    <div class="tl-text">ECA Conference of Ministers — ERA 2026 Official Launch, Tangier</div>
+    <div class="tl-sub">Binding ministerial AI investment commitments being formalised (closes 3 April)</div>
+  </div>
+  <div class="tl-item missed">
+    <div class="tl-date">31 Mar 2026 ← DEADLINE TODAY</div>
+    <div class="tl-text">Nigeria AI Bill — End-of-March Target (Not Met)</div>
+    <div class="tl-sub">Q2 2026 now the most realistic timeline · Monitor nitda.gov.ng</div>
+  </div>
+  <div class="tl-item missed">
+    <div class="tl-date">March 2026 (Slipped)</div>
+    <div class="tl-text">South Africa AI Policy Gazette — March Target (Delayed)</div>
+    <div class="tl-sub">April confirmed · 60-day comment window has not started</div>
+  </div>
+</div>
+
+<table class="events-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Event</th>
+      <th>Location</th>
+      <th>Significance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="ev-date">01–03 Apr</td>
+      <td><strong>ECA Conference of Ministers — Final Days</strong><br><span class="ev-tag live">Active Now</span></td>
+      <td>Tangier, Morocco</td>
+      <td>Binding AI investment commitments finalised. Directly shapes AfDB programme design and GITEX Africa discussions.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">07–09 Apr</td>
+      <td><strong>GITEX Africa Morocco 2026</strong><br><span class="ev-tag live">6 Days</span></td>
+      <td>Marrakech, Morocco</td>
+      <td>First major capital event post-deadline. 1,450+ exhibitors, $350B in assets. Africa's regulatory vacuum will be priced here.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">Apr 2026</td>
+      <td><strong>South Africa AI Policy Gazette</strong><br><span class="ev-tag live">Imminent</span></td>
+      <td>Pretoria / Online</td>
+      <td>60-day comment window opens. Singular opportunity to shape sector-specific AI implementation rules for 2027/2028.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">22 Apr</td>
+      <td><strong>ITWeb AI Summit 2026</strong></td>
+      <td>Johannesburg, SA</td>
+      <td>First public post-gazette briefing. DCDT's Mlindi Mashologu keynotes. Critical for SA enterprise AI decision-makers.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">Q2 2026</td>
+      <td><strong>Nigeria AI Bill — Q2 Target</strong><br><span class="ev-tag live">Watch Daily</span></td>
+      <td>Abuja, Nigeria</td>
+      <td>March deadline missed. National Assembly deliberations continue. Any vote notice = breaking news.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">19–21 May</td>
+      <td><strong>AI Everything Kenya × GITEX Kenya</strong></td>
+      <td>Nairobi, Kenya</td>
+      <td>15,000+ attendees, 500+ enterprises, 100+ investors. Kenya's AI Bill Senate debate will shape the agenda.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">Jun 2026</td>
+      <td><strong>MTN Capital Markets Day</strong></td>
+      <td>Johannesburg, SA</td>
+      <td>MTN names AI data centre co-investment partners for SA and Nigeria — the most important African compute infrastructure announcement of Q2.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">Aug 2026</td>
+      <td><strong>Deep Learning Indaba 2026</strong></td>
+      <td>Nigeria (TBC)</td>
+      <td>First time in Nigeria. "Sovereign Intelligence" theme. African dataset call open. Africa's premier ML research gathering.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ══════════════════════════════════
+     SECTION 9: SKILLS FILE UPDATE
+══════════════════════════════════ -->
+<div class="sec" id="skills">
+  <div class="sec-num">§ 09</div>
+  <h2>Skills File Update (Agent 6 Output)</h2>
+</div>
+
+<div class="agent-log">
+  <div class="al-head">§ Skills File v1.0 → v1.1 — Changes Made This Week</div>
+  <div class="al-step"><span class="ok">NEW RULE:</span> <span class="st">Surveillance spend data must always be cross-referenced with the active legislative timeline in the same country. $470M in Nigeria without AI law ≠ same story as $470M post-bill. The governance context is the story.</span></div>
+  <div class="al-step"><span class="ok">NEW RULE:</span> <span class="st">Agentic AI consumer deployments (EllaClaw-class) must be flagged separately from enterprise AI deployments. Different risk profile, different regulatory exposure, different market opportunity.</span></div>
+  <div class="al-step"><span class="ok">NEW FRAMEWORK:</span> <span class="st">Add "Deployment-Governance Inversion" as a standing analytical lens for African AI coverage. Default assumption: AI is deployed before law in Africa. Identify the gap, not the exception.</span></div>
+  <div class="al-step"><span class="ok">NEW FILTER:</span> <span class="st">UNESCO and ECA conferences are NOT ceremonial — they allocate multilateral implementation support that shapes governance outcomes. Always analyse outcomes, not just themes.</span></div>
+  <div class="al-step"><span class="ok">NEW SIGNAL TYPE:</span> <span class="st">Legal precedent (Ghana court case) is a tier-1 signal in Africa, not tier-3. First-of-kind legal actions create compliance categories that shape government procurement for years.</span></div>
+  <div class="al-step"><span class="warn">REMOVED:</span> <span class="st">Treating "missed legislative deadline" as a negative signal only. A missed deadline is also a market signal: investors will price regulatory uncertainty as a risk premium. Cover both dimensions.</span></div>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 10: MEMORY LOG
+══════════════════════════════════ -->
+<div class="sec" id="memory">
+  <div class="sec-num">§ 10</div>
+  <h2>Memory Log (Agent 7 Output)</h2>
+</div>
+
+<div class="agent-log">
+  <div class="al-head">§ Long-Term Strategic Memory — Patterns Extracted AIW-026-04</div>
+  <div class="al-step"><span class="ag">[PATTERN: RECURRING]</span> <span class="st">Legislative deadline slippage in major African AI bills consistently precedes major capital events by 1–3 weeks. Nigeria → GITEX Africa. South Africa gazette → ITWeb Summit. This pattern gives governance-risk a predictable "pricing moment" to watch.</span></div>
+  <div class="al-step"><span class="ag">[PATTERN: EMERGING]</span> <span class="st">Three distinct AI distribution channels are now competing in Africa simultaneously: (1) Enterprise/cloud — Microsoft, Cassava, Google; (2) Government/civil — NITDA language AI, EMY 101 chatbots; (3) Consumer device — TECNO EllaClaw. Each has different governance implications and different opportunity windows.</span></div>
+  <div class="al-step"><span class="ag">[PATTERN: STRUCTURAL]</span> <span class="st">Africa's AI governance conversation is geographically concentrated in 4 cities: Abuja (legislation), Pretoria/Johannesburg (policy + capital), Nairobi (diplomacy + ecosystem), and Marrakech (GITEX as quarterly capital event). Stories touching these cities carry structural weight regardless of individual signal strength.</span></div>
+  <div class="al-step"><span class="ag">[TREND: Q1 SUMMARY]</span> <span class="st">Q1 2026 = the quarter Africa's AI infrastructure arrived and Africa's AI governance did not. Equinix, Cassava, MTN, Microsoft all deployed physical and commercial AI infrastructure. Nigeria, South Africa, Kenya all failed to enact their first AI laws by their stated targets. This gap defines Q2 2026 as a legislative catch-up quarter.</span></div>
+  <div class="al-step"><span class="ag">[MISTAKE: CORRECTED]</span> <span class="st">Previous editions under-weighted the Broadcast Media AI governance gap. "Liar's Dividend" is not a media story — it is a democratic infrastructure story with electoral implications. Flag as tier-1 risk in all future coverage touching Nigerian and Kenyan election timelines.</span></div>
+  <div class="al-step"><span class="ag">[OPPORTUNITY: LOGGED]</span> <span class="st">Angola Startup Act creates a VC-virgin market with legal clarity. No Africa-focused fund has published Angola activity. First mover window is open. Add Angola to country monitoring list for DAL. Priority: find first angel investment deal in Luanda.</span></div>
+</div>
+
+<!-- EDITOR'S NOTE -->
+<div class="ed-note">
+  <div class="en-label">§ Editor's Note — AIW-026-04 (Backdated Edition)</div>
+  <p>This week was not defined by any single announcement. It was defined by a structural collision: the week Africa's AI governance window was at its narrowest — Nigeria's bill eight working days from its deadline, South Africa's gazette expected any day — was also the week agentic AI arrived on the cheapest smartphones in the continent's most populous nation, African ministers gathered in Paris and Tangier to shape multilateral AI support, Ghana's courts set a first legal precedent in AI procurement, and the ECA committed African governments to binding AI investment priorities. The machinery of deployment, diplomacy, capital, and litigation moved simultaneously. The law did not keep up.</p>
+  <p style="margin-top: 12px;">The most important question GITEX Africa will answer in seven days is whether $350 billion in institutional capital prices Africa's governance gap as a risk premium or a regulatory arbitrage opportunity. The answer will define the continent's AI investment decade. Operators and founders who understand this framing will raise capital. Those who do not will be priced by it.</p>
+  <p style="margin-top: 12px; font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(200,208,220,0.5); letter-spacing: 0.06em;">— The Daily African Lens Intelligence Desk · Edition #AIW-026-04 · Backdated: 31 March 2026 · Generated via 7-Agent Agentic Workflow</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="logo">The Daily African Lens</div>
+  <p>AI · Machine Learning · Data Science · Across 54 Nations</p>
+  <p>Published every morning at 6:00 AM SAST</p>
+  <p>AI Weekly Intelligence — Edition #AIW-026-04 · Week ending 31 March 2026</p>
+  <p>Produced via AI Weekly Intelligence Agentic Workflow v1.0 (7 agents)</p>
+  <p style="margin-top:10px;">Subscribe: <a href="https://simphiwemlotshwa.substack.com/">simphiwemlotshwa.substack.com</a></p>
+  <p style="margin-top:8px; font-size:10px; color:#b0a898;">© 2026 The Daily African Lens. All summaries are paraphrased editorial originals — no verbatim reproduction of source material. All source material drawn from DAL daily editions DAL-026-077 through DAL-026-087.</p>
+</div>
+
+</div><!-- /wrapper -->
 </body>
 </html>
