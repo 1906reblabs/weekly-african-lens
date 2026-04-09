@@ -510,6 +510,270 @@ a:hover { text-decoration: underline; }
   .toc-list { grid-template-columns: 1fr; }
   .topbar { position: static; }
 }
+
+/* ── PAYWALL STYLES ── */
+.paywall-gate {
+  position: relative;
+}
+.paywall-content {
+  position: relative;
+}
+.paywall-content.locked {
+  max-height: 320px;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+.paywall-content.locked::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--cream) 80%);
+  pointer-events: none;
+}
+.paywall-overlay {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+.paywall-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--rust) 50%, var(--teal) 100%);
+}
+.pw-inner {
+  padding: 36px 32px 32px;
+  text-align: center;
+}
+.pw-lock {
+  width: 44px; height: 44px;
+  background: var(--ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 18px;
+}
+.pw-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.pw-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.pw-subline {
+  font-size: 14px;
+  color: var(--mid-grey);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+.pw-plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pw-plan {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 18px 14px 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+.pw-plan:hover,
+.pw-plan.selected {
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.pw-plan.featured {
+  border-color: var(--gold);
+}
+.pw-plan.featured:hover,
+.pw-plan.featured.selected {
+  box-shadow: 3px 3px 0 var(--gold);
+}
+.pw-plan-badge {
+  position: absolute;
+  top: -9px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.pw-plan-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+  margin-bottom: 6px;
+}
+.pw-plan-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.pw-plan-price sup {
+  font-size: 13px;
+  font-weight: 400;
+  vertical-align: top;
+  margin-top: 4px;
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+}
+.pw-plan-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--mid-grey);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+.pw-plan-save {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--teal);
+  letter-spacing: 0.04em;
+  margin-top: 5px;
+}
+.pw-cta {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 320px;
+}
+.pw-cta:hover { background: var(--teal); }
+.pw-corporate {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--mid-grey);
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+.pw-corporate a { color: var(--teal); }
+.pw-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  max-width: 520px;
+  margin: 0 auto;
+}
+.pw-feature {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  color: var(--mid-grey);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.pw-feature::before {
+  content: '✓';
+  color: var(--teal);
+  font-size: 10px;
+  font-weight: 600;
+}
+/* subscriber unlock button */
+.pw-already {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--mid-grey);
+  letter-spacing: 0.04em;
+  margin-top: 12px;
+}
+.pw-already button {
+  background: none;
+  border: none;
+  color: var(--teal);
+  cursor: pointer;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* hidden sections revealed on subscribe */
+.subscriber-only {
+  display: none;
+}
+.subscribed .subscriber-only {
+  display: block;
+}
+.subscribed .paywall-content.locked {
+  max-height: none;
+  overflow: visible;
+  pointer-events: auto;
+}
+.subscribed .paywall-content.locked::after {
+  display: none;
+}
+.subscribed .paywall-overlay {
+  display: none;
+}
+
+/* free preview label */
+.free-preview-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 0;
+  padding: 10px 14px;
+  background: var(--teal-light);
+  border-left: 3px solid var(--teal);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--teal);
+  letter-spacing: 0.06em;
+}
+.free-preview-label strong { color: var(--ink); }
+
+@media (max-width: 480px) {
+  .pw-plans { grid-template-columns: 1fr; max-width: 280px; }
+  .pw-inner { padding: 28px 20px 24px; }
+}
+
 </style>
 </head>
 <body>
@@ -571,6 +835,15 @@ a:hover { text-decoration: underline; }
   </ul>
 </div>
 
+
+<div class="free-preview-label">
+  <span>✓</span>
+  <span><strong>FREE PREVIEW</strong> — Executive Summary above is available to all readers. Subscribe to access Key Developments, Market Signals, Strategic Insights, Opportunities, Risks, and Events Calendar.</span>
+</div>
+
+<!-- PAYWALL GATE -->
+<div class="paywall-gate" id="paywall-gate">
+<div class="paywall-content locked" id="paywall-content">
 <!-- SECTION 2: KEY DEVELOPMENTS -->
 <div class="sec" id="developments">
   <div class="sec-num">§ 02</div>
@@ -964,6 +1237,59 @@ a:hover { text-decoration: underline; }
   </tbody>
 </table>
 
+
+</div><!-- /paywall-content -->
+
+<!-- PAYWALL OVERLAY -->
+<div class="paywall-overlay" id="paywall-overlay">
+  <div class="pw-inner">
+    <div class="pw-lock">🔒</div>
+    <div class="pw-eyebrow">AI Weekly African Lens — Subscriber Access</div>
+    <h2 class="pw-headline">This edition continues<br>for subscribers</h2>
+    <p class="pw-subline">Get full access to Key Developments, Market &amp; Business Signals, Strategic Insights, Opportunities, Risks &amp; Threats, and the Events Calendar — every week.</p>
+
+    <div class="pw-plans">
+      <div class="pw-plan" onclick="selectPlan(this)" data-plan="weekly">
+        <div class="pw-plan-name">Weekly</div>
+        <div class="pw-plan-price"><sup>R</sup>29</div>
+        <div class="pw-plan-period">per week</div>
+      </div>
+      <div class="pw-plan featured" onclick="selectPlan(this)" data-plan="monthly">
+        <div class="pw-plan-badge">Most Popular</div>
+        <div class="pw-plan-name">Monthly</div>
+        <div class="pw-plan-price"><sup>R</sup>99</div>
+        <div class="pw-plan-period">per month</div>
+        <div class="pw-plan-save">Save ~14%</div>
+      </div>
+      <div class="pw-plan" onclick="selectPlan(this)" data-plan="annual">
+        <div class="pw-plan-name">Annual</div>
+        <div class="pw-plan-price"><sup>R</sup>999</div>
+        <div class="pw-plan-period">per year</div>
+        <div class="pw-plan-save">Save ~36%</div>
+      </div>
+    </div>
+
+    <button class="pw-cta" onclick="handleSubscribe()">Subscribe &amp; Read Full Edition →</button>
+
+    <div class="pw-corporate">
+      Team or corporate access? <a href="mailto:subscribe@daily-african-lens.beehiiv.com">Contact us for pricing →</a>
+    </div>
+
+    <div class="pw-features">
+      <span class="pw-feature">Full weekly intelligence report</span>
+      <span class="pw-feature">Strategic insights &amp; opportunities</span>
+      <span class="pw-feature">Market &amp; investment signals</span>
+      <span class="pw-feature">Risks &amp; threat analysis</span>
+      <span class="pw-feature">Events calendar</span>
+      <span class="pw-feature">Archive access</span>
+    </div>
+
+    <div class="pw-already">Already a subscriber? <button onclick="unlockContent()">Sign in to read →</button></div>
+  </div>
+</div>
+
+</div><!-- /paywall-gate -->
+
 <!-- EDITOR'S NOTE -->
 <div class="ed-note">
   <div class="en-label">§ Editor's Note — AIW-026-05</div>
@@ -983,5 +1309,43 @@ a:hover { text-decoration: underline; }
 </div>
 
 </div><!-- /wrapper -->
+
+<script>
+(function() {
+  // Check if already subscribed (demo: localStorage)
+  if (localStorage.getItem('aiw_subscribed') === 'true') {
+    unlockContent();
+  }
+
+  // Pre-select monthly
+  var plans = document.querySelectorAll('.pw-plan[data-plan="monthly"]');
+  if (plans.length) plans[0].classList.add('selected');
+})();
+
+function selectPlan(el) {
+  document.querySelectorAll('.pw-plan').forEach(function(p) { p.classList.remove('selected'); });
+  el.classList.add('selected');
+}
+
+function handleSubscribe() {
+  var selected = document.querySelector('.pw-plan.selected');
+  var plan = selected ? selected.getAttribute('data-plan') : 'monthly';
+  var prices = { weekly: 'R29/week', monthly: 'R99/month', annual: 'R999/year' };
+  var urls = {
+    weekly:  'https://simphiwemlotshwa.substack.com/subscribe',
+    monthly: 'https://simphiwemlotshwa.substack.com/subscribe',
+    annual:  'https://simphiwemlotshwa.substack.com/subscribe'
+  };
+  // In production this would redirect to Beehiiv/Stripe checkout
+  window.open(urls[plan] || urls.monthly, '_blank');
+}
+
+function unlockContent() {
+  document.getElementById('paywall-gate').classList.add('subscribed');
+  document.getElementById('paywall-content').classList.remove('locked');
+  localStorage.setItem('aiw_subscribed', 'true');
+}
+</script>
+
 </body>
 </html>
