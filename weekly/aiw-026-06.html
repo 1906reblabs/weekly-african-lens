@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Weekly African Lens — Edition #AIW-026-06 | 14 April 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0e0e0e;
+  --cream: #faf7f2;
+  --gold: #c8922a;
+  --gold-light: #f0d898;
+  --rust: #b84c2a;
+  --teal: #1a6b5e;
+  --teal-light: #e3f2ee;
+  --border: #d8d0c4;
+  --mid-grey: #7a7570;
+  --light-grey: #ede9e3;
+  --deep: #0a1020;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── LAYOUT ── */
+.wrapper { max-width: 760px; margin: 0 auto; padding: 0 22px 80px; }
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--deep);
+  padding: 10px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.topbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.topbar-brand span { color: var(--gold); }
+.topbar-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #6a7890;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.topbar-badge {
+  background: var(--gold);
+  color: var(--deep);
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  font-weight: 500;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 52px 22px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -60px;
+  width: 240px; height: 240px;
+  border: 1px solid rgba(200,146,42,0.15);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 180px; height: 180px;
+  border: 1px solid rgba(200,146,42,0.08);
+  border-radius: 50%;
+}
+.hero .over {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5.5vw, 52px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero .sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5a6880;
+  margin-bottom: 32px;
+}
+.hero-window {
+  display: inline-block;
+  background: rgba(200,146,42,0.1);
+  border: 1px solid rgba(200,146,42,0.25);
+  padding: 8px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--gold-light);
+  letter-spacing: 0.06em;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.hs { text-align: center; }
+.hs-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+.hs-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5a6880;
+  margin-top: 2px;
+  display: block;
+}
+
+/* ── EXECUTIVE SUMMARY ── */
+.exec-box {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 32px 28px;
+  margin: 36px 0;
+}
+.exec-box .ex-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.exec-box .ex-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+.exec-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.exec-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #c8d0dc;
+}
+.exec-list li::before {
+  content: '→';
+  color: var(--gold);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── SECTION HEADERS ── */
+.sec {
+  border-top: 3px solid var(--ink);
+  margin: 44px 0 24px;
+  padding-top: 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.sec-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+.sec h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* ── STORY CARDS ── */
+.story {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 22px 22px 18px;
+  margin-bottom: 14px;
+  position: relative;
+}
+.rank-badge {
+  position: absolute;
+  top: -1px; left: -1px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  background: var(--gold);
+  color: var(--deep);
+}
+.rank-badge.critical { background: var(--rust); color: #fff; }
+.rank-badge.pivot { background: #5a2a00; color: var(--gold-light); }
+.rank-badge.infra { background: #2a1055; color: #c4b8f0; }
+.rank-badge.watch { background: var(--teal); color: #fff; }
+.rank-badge.gazette { background: #1a6b5e; color: #fff; }
+.story h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 22px 0 10px;
+  color: var(--ink);
+}
+.pills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+.pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.pl-p { background: var(--teal-light); color: var(--teal); }
+.pl-s { background: #fbe9e6; color: var(--rust); }
+.pl-t { background: #fef3e2; color: #9a6210; }
+.pl-i { background: #f3e5f5; color: #6a1b9a; }
+.pl-g { background: #e3f2fd; color: #1565c0; }
+.pl-e { background: #e9f5e9; color: #2e7d32; }
+.pl-k { background: var(--ink); color: var(--cream); }
+.story p { font-size: 13.5px; line-height: 1.72; color: #2a2520; margin-bottom: 10px; }
+.insight-box {
+  background: #fffbf0;
+  border-left: 3px solid var(--gold);
+  padding: 10px 14px;
+  margin-top: 12px;
+}
+.insight-box .ib-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+.insight-box p { font-size: 13px; color: #5a4a1a; margin: 0; }
+.story .meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  margin-top: 12px;
+}
+.story .source {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--mid-grey);
+  flex: 1;
+}
+
+/* ── DATA PANELS ── */
+.data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.data-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+}
+.dc-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  display: block;
+}
+.dc-val.gold { color: var(--gold); }
+.dc-val.rust { color: var(--rust); }
+.dc-val.teal { color: var(--teal); }
+.dc-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--mid-grey);
+  margin-top: 4px;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* ── STRATEGIC INSIGHTS ── */
+.insight-card {
+  background: var(--teal);
+  color: #fff;
+  padding: 20px 22px;
+  margin-bottom: 12px;
+}
+.ic-head {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 8px;
+}
+.ic-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.ic-body { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+/* ── OPPORTUNITIES ── */
+.opp-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.opp-row:last-child { border-bottom: none; }
+.opp-num {
+  width: 28px;
+  height: 28px;
+  background: var(--gold);
+  color: var(--deep);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.opp-body {}
+.opp-title { font-weight: 600; font-size: 13.5px; margin-bottom: 3px; }
+.opp-desc { font-size: 12.5px; color: var(--mid-grey); line-height: 1.6; }
+
+/* ── RISKS ── */
+.risk-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: #fff5f3;
+  border-left: 3px solid var(--rust);
+  margin-bottom: 10px;
+  font-size: 13.5px;
+}
+.risk-icon {
+  color: var(--rust);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── EVENTS TABLE ── */
+.events-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.events-table th {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+  background: var(--light-grey);
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--border);
+}
+.events-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  background: #fff;
+  vertical-align: top;
+}
+.events-table tr:last-child td { border-bottom: none; }
+.ev-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--rust); white-space: nowrap; }
+.ev-tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  background: var(--teal-light);
+  color: var(--teal);
+  border-radius: 2px;
+  margin-top: 2px;
+}
+.ev-tag.live { background: #fbe9e6; color: var(--rust); }
+
+/* ── EDITOR NOTE ── */
+.ed-note {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 28px 26px;
+  margin-top: 44px;
+}
+.en-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.ed-note p { font-size: 13.5px; line-height: 1.75; color: #c8d0dc; }
+
+/* ── FOOTER ── */
+.footer {
+  border-top: 3px solid var(--ink);
+  padding: 24px 0;
+  margin-top: 40px;
+  text-align: center;
+}
+.footer .logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.footer p {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--mid-grey);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+/* ── MISC ── */
+.divider { height: 1px; background: var(--border); margin: 16px 0; }
+.toc {
+  background: var(--light-grey);
+  border: 1px solid var(--border);
+  padding: 18px 20px;
+  margin: 28px 0;
+}
+.toc-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+  margin-bottom: 12px;
+}
+.toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+.toc-list li { font-size: 12.5px; }
+.toc-list a { color: var(--teal); }
+
+@media (max-width: 540px) {
+  .hero-stats { gap: 20px; }
+  .data-grid { grid-template-columns: 1fr; }
+  .toc-list { grid-template-columns: 1fr; }
+  .topbar { position: static; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">The Weekly African Lens<span>.</span></div>
+  <div class="topbar-meta">AI Weekly Intelligence</div>
+  <div class="topbar-badge">AIW-026-06</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="over">The Weekly African Lens — Edition #AIW-026-06</div>
+  <h1>South Africa's AI Policy<br><em>Lands at Last</em></h1>
+  <div class="sub">The 60-Day Window Opens · Morocco Bets $1.28B · GITEX $5B Delivered</div>
+  <div class="hero-window">
+    Window: Tuesday 7 April 2026, 06:00 SAST → Tuesday 14 April 2026, 05:59 SAST
+  </div>
+  <div class="hero-stats">
+    <div class="hs"><span class="hs-val">10</span><span class="hs-lbl">Key Developments</span></div>
+    <div class="hs"><span class="hs-val">$1.28B</span><span class="hs-lbl">Nexus AI Factory</span></div>
+    <div class="hs"><span class="hs-val">60</span><span class="hs-lbl">Days to Comment on SA Policy</span></div>
+    <div class="hs"><span class="hs-val">$5B</span><span class="hs-lbl">GITEX Deal Pipeline</span></div>
+  </div>
+</div>
+
+<div class="wrapper">
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <div class="toc-label">§ In This Edition</div>
+  <ul class="toc-list">
+    <li><a href="#exec">Executive Summary</a></li>
+    <li><a href="#developments">Key Developments</a></li>
+    <li><a href="#market">Market &amp; Business Signals</a></li>
+    <li><a href="#research">Research &amp; Ecosystem</a></li>
+    <li><a href="#strategic">Strategic Insights</a></li>
+    <li><a href="#opportunities">Opportunities</a></li>
+    <li><a href="#risks">Risks &amp; Threats</a></li>
+    <li><a href="#events">Events Calendar</a></li>
+  </ul>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="exec-box" id="exec">
+  <div class="ex-label">§ 01 — Executive Summary</div>
+  <div class="ex-title">What actually mattered this week — 10 signals, no noise</div>
+  <ul class="exec-list">
+    <li>South Africa's Draft National AI Policy was gazetted on 13 April 2026 — Cabinet approved the policy on 25 March, and the DCDT published it this week, opening a 60-day public comment window running until 10 June. Signed by Minister Solly Malatsi, the policy's six pillars cover talent, inclusive growth, responsible governance, ethical AI, cultural preservation, and human-centred deployment. The ITWeb AI Summit on 22 April becomes the continent's most consequential governance briefing of Q2.</li>
+    <li>Morocco signed a $1.28 billion MoU at GITEX Africa 2026 to build the Nexus AI Factory Platform — Africa's first sovereign AI infrastructure initiative of this scale, powered by Nvidia Blackwell GPUs and Naver Cloud, co-located in Casablanca. The project replaces promise with concrete capital: two phases through 2027, 36 MW total capacity, 125 direct jobs. The US Ambassador described it as a historic moment.</li>
+    <li>GITEX Africa Morocco 2026 concluded on 9 April with a $5 billion deal pipeline — Inwi-China Mobile 5G, Orange Maroc-Ericsson private 5G, Huawei Morocco gaming MoU, and the Nexus AI Factory among the headline signings. Morocco has now positioned itself as Africa's AI gateway across technology, finance, sport and diplomacy simultaneously.</li>
+    <li>Mauritius launched its new National AI Strategy and FAIR (Fairness, Accountability, Integrity, Responsibility) Guidelines on 14 April — the island nation's second formal AI strategy, confirming that the legislative momentum is no longer confined to Africa's Big Four tech markets.</li>
+    <li>Nigeria's CLHEEAN launched — an AI-powered government mobile application designed to improve citizen-government interactions, covering public services and administrative procedures. The app represents a second West African government AI deployment model, complementing Côte d'Ivoire's EMY 101 on WhatsApp from last week.</li>
+    <li>The AfDB approved $200 million toward Nigeria's fiber expansion on 14 April — directly addressing the connectivity layer on which AI deployment depends. Nigeria's fiber deficit has been the structural bottleneck preventing its AI ambition from translating into deployed infrastructure.</li>
+    <li>SA startup Refiant raised $5 million to advance sustainable AI — energy-efficient inference infrastructure positioned specifically for African market conditions. The raise signals growing investor recognition that Africa's AI infrastructure problem is also an energy problem.</li>
+    <li>Kenya's President Ruto signed a France defence pact and secured $2.9 billion in KIICO investment commitments alongside 11 bilateral agreements with Morocco — covering agriculture, manufacturing, ICT and healthcare. Kenya is simultaneously becoming France's primary African security partner and East Africa's technology hub, a geopolitical repositioning with structural implications for AI investment flows.</li>
+    <li>The IMF Regional Economic Outlook for Sub-Saharan Africa is due 16 April — the first major international economic assessment since GITEX Africa's $5B deal pipeline closed and South Africa's AI policy landed. It will provide the quantitative framework within which this week's capital commitments will be evaluated by institutional investors.</li>
+    <li>PayTic Morocco launched its AI-powered payments platform — integrating GUPPY-AI's autonomous agent capabilities into a fintech stack designed for African banks. The acquisition-to-launch timeline of under four weeks is one of the fastest AI product-market deployments in African fintech recorded this year.</li>
+  </ul>
+</div>
+
+<!-- SECTION 2: KEY DEVELOPMENTS -->
+<div class="sec" id="developments">
+  <div class="sec-num">§ 02</div>
+  <h2>Key Developments</h2>
+</div>
+
+<!-- STORY 1: SA AI POLICY GAZETTED -->
+<div class="story">
+  <div class="rank-badge gazette">RANK #1 — GOVERNANCE BREAKTHROUGH</div>
+  <h3>South Africa's Draft National AI Policy Gazetted — The 60-Day Comment Window That Will Define Africa's Largest Economy's AI Future Is Now Open</h3>
+  <div class="pills">
+    <span class="pill pl-p">Policy</span>
+    <span class="pill pl-k">South Africa</span>
+    <span class="pill pl-p">Regulation</span>
+    <span class="pill pl-k">Continental</span>
+  </div>
+  <p>South Africa's Department of Communications and Digital Technologies gazetted the Draft National AI Policy on 13 April 2026, having received Cabinet approval on 25 March. Citizens and organisations now have until 10 June 2026 to submit comments to the DCDT — a 60-day window that is the single most consequential governance participation opportunity on the continent in Q2 2026. The policy, signed by Minister Solly Malatsi, is structured around six core pillars: capacity and talent development; AI for inclusive growth and job creation; responsible governance; ethical and inclusive AI; cultural preservation and international integration; and human-centred deployment. Its key institutional proposals include an AI Ethics Board, a National AI Commission, and an AI Regulatory Authority operating within South Africa's existing supervisory framework. Full implementation is targeted for 2027–2028.</p>
+  <div class="insight-box">
+    <div class="ib-label">Why this gazette changes everything</div>
+    <p>The delay that defined Q1 2026 — the governance gap that framed GITEX Africa's $350B investor conversation — is now partially closed. South Africa's policy provides a framework for sector-specific AI regulation that every financial services, healthcare, and public-sector AI deployer in the country must engage before June 10. The ITWeb AI Summit on 22 April becomes the first major public briefing point post-gazette, with DCDT Director General Nonkqubela Jordan-Dyani and Deputy DG Mlindi Mashologu expected to present the implementation roadmap. The 60-day window is not an afterthought — it is where the specific algorithmic explainability standards and supervisory oversight mechanisms for 2027–2028 will be shaped.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Connecting Africa · Government Gazette No. 54477 · DCDT — 13 April 2026</span>
+  </div>
+</div>
+
+<!-- STORY 2: NEXUS AI FACTORY -->
+<div class="story">
+  <div class="rank-badge infra">RANK #2 — SOVEREIGN INFRASTRUCTURE</div>
+  <h3>Morocco Signs $1.28 Billion MoU for Nexus AI Factory — Africa's First Sovereign AI Infrastructure Platform, Powered by Nvidia Blackwell</h3>
+  <div class="pills">
+    <span class="pill pl-i">Infrastructure</span>
+    <span class="pill pl-e">Investment</span>
+    <span class="pill pl-k">Morocco</span>
+    <span class="pill pl-g">Geopolitics</span>
+  </div>
+  <p>Morocco signed a landmark $1.28 billion MoU on 8 April 2026, during GITEX Africa, to build the Nexus AI Factory Platform — described by the US Ambassador as Africa's first sovereign AI infrastructure platform. Nexus Core Systems, in consortium with Nvidia, Korea's Naver Cloud, and Lloyd Capital, will develop an integrated ecosystem in Casablanca comprising a high-performance computing data centre (powered by Nvidia's latest Blackwell GB200 GPUs), a Centre of Excellence for skills development, and an innovation hub. Phase 1: 16 MW capacity in Nouaceur, MAD 5 billion, targeting 50 direct jobs. Phase 2: additional 20 MW in northern Morocco, MAD 7 billion. Combined capacity path: 500 MW powered entirely by renewable energy through TAQA Morocco. Total planned jobs: 125 direct by 2027. The MoU was formally signed between Nexus Core Systems, Morocco's Ministry of Digital Transition and Administrative Reform, the Ministry of Investment, and AMDIE.</p>
+  <div class="insight-box">
+    <div class="ib-label">Strategic significance</div>
+    <p>MoUs are, as TechCabal notes, famously optimistic documents — but this one has a four-party government signature structure, Nvidia hardware specificity (Blackwell GB200), a renewable energy supply contract already in place, and US Ambassador public endorsement on the day of signing. It also arrives in the wake of Equinix's R7.5B South Africa commitment last week. Two sovereign-scale AI infrastructure commitments in two consecutive weeks is not a coincidence — it is the market signalling that Africa's AI infrastructure decade has decisively begun. The geographic significance is equally important: South Africa dominates African compute today. Morocco's 500 MW target would, if built to phase completion, establish a second sovereign compute pole on the continent.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Morocco World News · Ecofin Agency · TechCabal · Developing Telecoms · North Africa Post — 8–14 April 2026</span>
+  </div>
+</div>
+
+<!-- STORY 3: GITEX OUTCOMES -->
+<div class="story">
+  <div class="rank-badge">RANK #3 — MARKET EVENT: OUTCOMES</div>
+  <h3>GITEX Africa Morocco 2026 Closes With $5 Billion Deal Pipeline — The Governance-Capital Conversation the Continent Needed Has Happened</h3>
+  <div class="pills">
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-e">Ecosystem</span>
+    <span class="pill pl-g">Geopolitics</span>
+    <span class="pill pl-k">Morocco</span>
+  </div>
+  <p>GITEX Africa Morocco 2026 concluded on 9 April in Marrakech with a confirmed $5 billion deal pipeline. Beyond the Nexus AI Factory MoU, key signings included: Inwi partnering with China Mobile International to deploy Morocco's first industrial private 5G network; Orange Maroc and Ericsson co-developing private 5G network solutions; Huawei Morocco and the Ministry of Youth, Culture and Communication signing an MoU on gaming and digital industries development; and multiple government-to-technology-company AI pilot agreements across healthcare, agriculture, and public services. The event's Africa AI Governance Forum — the first major capital gathering post the Q1 legislative deadline misses in Nigeria and South Africa — produced frank institutional investor conversations about regulatory risk that this newsletter had forecast in AIW-026-05.</p>
+  <div class="insight-box">
+    <div class="ib-label">The conversation that happened</div>
+    <p>The $5B pipeline is the headline, but the structural outcome of GITEX Africa 2026 is Morocco's consolidation as Africa's technology and influence gateway. Eleven bilateral deals with Kenya, the Nexus AI Factory, 5G operator partnerships, and global diplomatic positioning around the 2030 FIFA World Cup co-hosting are not coincidental — they represent the most systematically executed continental positioning strategy by any African nation in 2026. The risk for the rest of the continent is that Morocco captures the capital narrative while governance-ready markets like Rwanda and South Africa (post-gazette) remain underrepresented in the deal flow.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Connecting Africa · Morocco World News · Africa Intelligence Brief — 9–14 April 2026</span>
+  </div>
+</div>
+
+<!-- STORY 4: MAURITIUS AI STRATEGY -->
+<div class="story">
+  <div class="rank-badge watch">RANK #4 — GOVERNANCE: NEW ENTRANT</div>
+  <h3>Mauritius Launches National AI Strategy and FAIR Guidelines — The Continent's Legislative Wave Reaches Its Most Governance-Ready Small State</h3>
+  <div class="pills">
+    <span class="pill pl-p">Policy</span>
+    <span class="pill pl-k">Mauritius</span>
+    <span class="pill pl-p">Regulation</span>
+    <span class="pill pl-k">Continental</span>
+  </div>
+  <p>Mauritius officially launched its new National Artificial Intelligence Strategy and FAIR (Fairness, Accountability, Integrity, Responsibility) Guidelines on 14 April 2026, marking a significant update to the island nation's original 2018 AI strategy. The new strategy positions Mauritius as a high-tech financial and technology services hub with AI embedded across its core sectors: financial services, tourism, healthcare, agritech, and smart ports. The FAIR Guidelines establish the continental-facing governance framework — the first African small island developing state to publish a dedicated AI ethics framework aligned with the AU Continental AI Strategy principles. Mauritius already holds the highest Government AI Readiness Index score in Sub-Saharan Africa (Oxford Insights).</p>
+  <div class="insight-box">
+    <div class="ib-label">Why small states matter in AI governance</div>
+    <p>Mauritius consistently moves faster and more cleanly than the continent's large economies on digital governance. Its FAIR Guidelines — published in the same week as South Africa's policy gazette — establish a practical ethical benchmark that the continent's larger, more contested legislative processes struggle to match. For international investors choosing African markets for AI deployment, Mauritius's governance clarity is a standing signal that responsible AI frameworks can be built in Africa without waiting for Lagos or Johannesburg to resolve their institutional debates.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">TechAfrica News — 14 April 2026</span>
+  </div>
+</div>
+
+<!-- STORY 5: NIGERIA CLHEEAN + AFDB FIBER -->
+<div class="story">
+  <div class="rank-badge">RANK #5 — NIGERIA: DUAL SIGNAL</div>
+  <h3>Nigeria Launches CLHEEAN AI App + AfDB Approves $200M Fiber Expansion — Africa's Largest Economy Moves on Two Fronts Simultaneously</h3>
+  <div class="pills">
+    <span class="pill pl-p">Government AI</span>
+    <span class="pill pl-i">Infrastructure</span>
+    <span class="pill pl-k">Nigeria</span>
+    <span class="pill pl-e">Investment</span>
+  </div>
+  <p>Nigeria delivered two significant signals this week. First, the government launched CLHEEAN — an AI-powered mobile application designed to improve citizen-government interactions, covering administrative procedures including civil registration, taxation, public information, and government service navigation. Unlike Côte d'Ivoire's EMY 101 which operates on WhatsApp, CLHEEAN is a dedicated app — a design choice with significant equity implications for a population where smartphone and data costs remain barriers. Second, the AfDB approved a $200 million facility on 14 April toward Nigeria's fiber network expansion, directly addressing the connectivity infrastructure on which AI service delivery depends. Nigeria has an estimated 3.4% fiber penetration rate — among the lowest of the continent's major economies.</p>
+  <div class="insight-box">
+    <div class="ib-label">Reading the two signals together</div>
+    <p>CLHEEAN deploys an AI application into an infrastructure context where the AfDB's $200M fiber injection is still 12–18 months from yielding material coverage improvement. This is the recurring Nigerian paradox: governance ambition outpacing infrastructure readiness. The sequencing challenge — application layer before connectivity layer — is not unique to Nigeria, but Nigeria's scale (220 million people, 75% mobile internet penetration by GSM Association estimates) makes the execution gap the most consequential on the continent. The fiber approval is the more important long-term signal of the two.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">iAfrica.com · Connecting Africa — 5 April / 14 April 2026</span>
+  </div>
+</div>
+
+<!-- STORY 6: KENYA FRANCE MOROCCO -->
+<div class="story">
+  <div class="rank-badge">RANK #6 — GEOPOLITICS: EAST AFRICA</div>
+  <h3>Kenya Signs France Defence Pact and $2.9B KIICO Deals + 11 Morocco Agreements — Ruto Executes East Africa's Most Consequential Foreign Policy Repositioning</h3>
+  <div class="pills">
+    <span class="pill pl-g">Geopolitics</span>
+    <span class="pill pl-k">Kenya</span>
+    <span class="pill pl-e">Investment</span>
+    <span class="pill pl-k">Morocco</span>
+  </div>
+  <p>Kenya's President Ruto signed a France-Kenya defence pact this week, while simultaneously securing $2.9 billion in KIICO (Kenya Investment and Innovation Corporation) commitments and 11 bilateral agreements with Morocco spanning agriculture, manufacturing, ICT and healthcare. According to Africa Intelligence Brief analysis, Kenya is simultaneously positioning as France's primary African security partner and East Africa's technology hub — the most consequential Kenyan foreign policy repositioning in years. For the AI intelligence context: Kenya's ICT agreements with Morocco include data centre co-investment and AI skilling components directly relevant to the Deep Learning Indaba 2026 (Nigeria, August) and AI Everything Kenya (19–21 May, Nairobi).</p>
+  <div class="insight-box">
+    <div class="ib-label">The triangular implication</div>
+    <p>Kenya-Morocco-France is not a bilateral story — it is a three-way geopolitical axis forming in the same week Morocco closes GITEX Africa with a $5B pipeline. For African AI investors watching capital flow geography, this triangulation signals that East Africa's AI infrastructure will increasingly draw French and North African capital alongside traditional US and Chinese flows. The Kenya AI Bill 2026, still pending Senate passage, is the regulatory gap that sits beneath this otherwise bullish investment picture.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Africa Intelligence Brief — 14 April 2026</span>
+  </div>
+</div>
+
+<!-- STORY 7: SA REFIANT + HPE NETWORKS -->
+<div class="story">
+  <div class="rank-badge">RANK #7 — ECOSYSTEM: SOUTH AFRICA</div>
+  <h3>SA Startup Refiant Raises $5M for Sustainable AI + HPE Identifies Network Infrastructure as Africa's AI Scale Bottleneck</h3>
+  <div class="pills">
+    <span class="pill pl-e">Investment</span>
+    <span class="pill pl-k">South Africa</span>
+    <span class="pill pl-i">Infrastructure</span>
+    <span class="pill pl-t">Research</span>
+  </div>
+  <p>South African AI startup Refiant raised $5 million on 9 April to advance sustainable, energy-efficient AI inference infrastructure optimised for African market conditions — addressing the energy-inference gap that remains the continent's most structurally intractable AI deployment challenge. On 14 April, HPE Networking's Country Manager for Southern Africa Mandy Duncan published analysis identifying network infrastructure modernisation as the primary bottleneck to AI scale in South African enterprises. The analysis, citing IDC data showing $3.7 average return per $1 invested in generative AI, documents a significant gap between adoption and execution — 71% of African CEOs investing in AI, but most deployments stuck in "pilot purgatory" due to infrastructure, not capability, constraints.</p>
+  <div class="insight-box">
+    <div class="ib-label">The infrastructure stack problem</div>
+    <p>Refiant's raise and HPE's analysis point to the same structural insight from opposite directions: Africa's AI deployment bottleneck is not algorithmic capability — it is energy, networking, and compute infrastructure. The Equinix R7.5B and Nexus AI Factory $1.28B commitments address the compute layer. Refiant addresses the inference energy layer. HPE's analysis identifies the enterprise networking layer. All three constraints must be addressed in parallel. Organisations that treat any one layer as sufficient are building AI ambition on a partial foundation.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Connecting Africa · Africa Business Innovation — 9 April / 14 April 2026</span>
+  </div>
+</div>
+
+<!-- STORY 8: PAYTIC MOROCCO AI FINTECH -->
+<div class="story">
+  <div class="rank-badge">RANK #8 — FINTECH AI: MOROCCO</div>
+  <h3>PayTic Launches AI Payments Platform via GUPPY-AI Acquisition — Africa's Fastest AI Fintech Product Launch of 2026</h3>
+  <div class="pills">
+    <span class="pill pl-t">Fintech</span>
+    <span class="pill pl-k">Morocco</span>
+    <span class="pill pl-e">Ecosystem</span>
+  </div>
+  <p>Moroccan fintech PayTic launched its AI Intelligent Components platform on 13 April, integrating GUPPY-AI's autonomous agent capabilities — acquired in early April following a $4 million funding round in 2025 — into its existing data operating system for payments. The new platform delivers AI-powered autonomous banking and payments modernisation, targeting African banks and merchants upgrading legacy systems. The acquisition-to-product-launch timeline of under four weeks is notable: it represents one of the fastest AI product-market deployments in African fintech recorded in 2026, executed at the same time as Morocco was finalising the Nexus AI Factory MoU at GITEX.</p>
+  <div class="insight-box">
+    <div class="ib-label">Why the timing matters</div>
+    <p>PayTic's launch on the back of GITEX Africa's deal-making energy is not accidental. Morocco is building a self-reinforcing AI ecosystem loop: sovereign infrastructure (Nexus), enterprise AI tools (PayTic), operator 5G (Inwi, Orange Maroc), and diplomatic capital (Kenya, France). The fintech AI layer completes what the infrastructure announcements began. For African banks tracking payments modernisation, this is the most integrated AI-fintech stack currently in active deployment on the continent.</p>
+  </div>
+  <div class="meta-row">
+    <span class="source">Business Tech Africa — 13 April 2026</span>
+  </div>
+</div>
+
+<!-- STORY 9: SAP ENTERPRISE AI + CNN EDTECH -->
+<div class="story">
+  <div class="rank-badge watch">RANK #9 — ENTERPRISE AI</div>
+  <h3>SAP Africa: Enterprise AI Moves From Pilot to Operations in 2026 — South African EdTech Featured on CNN Marketplace Africa</h3>
+  <div class="pills">
+    <span class="pill pl-t">Enterprise AI</span>
+    <span class="pill pl-k">South Africa</span>
+    <span class="pill pl-e">Ecosystem</span>
+  </div>
+  <p>SAP Africa's Managing Director for Southern Africa Nazia Pillay published a landmark operational assessment on 7 April declaring 2026 as the year enterprise AI transitions from pilot to production across the continent. The analysis cites AI agents (autonomous, multi-step decision-execution tools), AI governance as operational prerequisite, and AI centres of excellence as the three defining characteristics of mature enterprise AI deployment in 2026. Separately, CNN's Marketplace Africa featured South African edtech startups Vambo and Invigilator on 2 April — profiling how AI is addressing language barriers and examination access for students in underserved communities. The CNN coverage represents the first major international broadcast treatment of South Africa's AI-in-education story in 2026.</p>
+  <div class="meta-row">
+    <span class="source">SAP Africa News Centre · CNN Marketplace Africa — 7 April / 2 April 2026</span>
+  </div>
+</div>
+
+<!-- STORY 10: AFREXIMBANK R176B -->
+<div class="story">
+  <div class="rank-badge">RANK #10 — INSTITUTIONAL</div>
+  <h3>Afreximbank Commits R176B to South Africa + PAPSS Expansion — Africa's Primary Trade Financier Acts as Strategy Consultant</h3>
+  <div class="pills">
+    <span class="pill pl-e">Investment</span>
+    <span class="pill pl-k">South Africa</span>
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-p">Policy</span>
+  </div>
+  <p>Afreximbank President Benedict Oramah confirmed a R176 billion ($10.4B) commitment to South Africa this week, alongside continued expansion of the Pan-African Payment and Settlement System (PAPSS) — the real-time cross-border payment infrastructure that underpins intra-African trade's AI-enabled future. Africa Intelligence Brief analysis characterises Afreximbank as increasingly operating as "the development bank that acts like a strategy consultant" — combining capital deployment with policy advisory, Africa CDC support, and cotton value-addition programme design. The PAPSS expansion is directly relevant to fintech AI: PAPSS settlement data will, once at scale, represent the continent's most comprehensive intra-African payments dataset for AI-powered financial inclusion tools.</p>
+  <div class="meta-row">
+    <span class="source">Africa Intelligence Brief — 14 April 2026</span>
+  </div>
+</div>
+
+<!-- SECTION 3: MARKET SIGNALS -->
+<div class="sec" id="market">
+  <div class="sec-num">§ 03</div>
+  <h2>Market &amp; Business Signals</h2>
+</div>
+
+<div class="data-grid">
+  <div class="data-card">
+    <span class="dc-val gold">$1.28B</span>
+    <span class="dc-lbl">Nexus AI Factory Morocco MoU</span>
+  </div>
+  <div class="data-card">
+    <span class="dc-val">$5B</span>
+    <span class="dc-lbl">GITEX Africa 2026 deal pipeline</span>
+  </div>
+  <div class="data-card">
+    <span class="dc-val teal">60</span>
+    <span class="dc-lbl">Days to comment on SA AI Policy</span>
+  </div>
+  <div class="data-card">
+    <span class="dc-val rust">$200M</span>
+    <span class="dc-lbl">AfDB Nigeria fiber commitment</span>
+  </div>
+</div>
+
+<div class="story" style="margin-top:14px;">
+  <div class="rank-badge">CAPITAL WEEK SUMMARY</div>
+  <h3>Week of 7–14 April: Africa's Largest Governance + Capital Week Since GITEX Global 2025</h3>
+  <div class="pills">
+    <span class="pill pl-e">Market Data</span>
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-e">Investment</span>
+  </div>
+  <p>This week represents the highest combined governance and capital activity in Africa's AI market since GITEX Global 2025 in Dubai. In a single 7-day window: South Africa gazetted its national AI policy (governance breakthrough); Morocco signed a $1.28B AI factory MoU (infrastructure commitment); GITEX Africa delivered a $5B deal pipeline (market validation); Mauritius launched its updated AI strategy and FAIR guidelines (policy maturity); AfDB committed $200M to Nigeria fiber (enabling infrastructure); and Afreximbank confirmed R176B to South Africa (institutional capital). The week's cumulative capital-and-governance signal is the most concentrated in the continent's AI history — and it arrives precisely as the IMF Regional Economic Outlook (due 16 April) will provide the international institutional framework within which these commitments are assessed.</p>
+  <div class="meta-row">
+    <span class="source">Aggregate — Multiple sources, 7–14 April 2026</span>
+  </div>
+</div>
+
+<!-- SECTION 4: RESEARCH & ECOSYSTEM -->
+<div class="sec" id="research">
+  <div class="sec-num">§ 04</div>
+  <h2>Research &amp; Ecosystem</h2>
+</div>
+
+<div class="story">
+  <div class="rank-badge">MEDIA + GOVERNANCE</div>
+  <h3>African Media AI Survey 2026: Governance Absent as AI Embeds in Newsrooms — iAfrica Data Confirms Structural Vulnerability</h3>
+  <div class="pills">
+    <span class="pill pl-s">AI Governance</span>
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-p">Research</span>
+  </div>
+  <p>A new survey of African media organisations (published 11 April by iAfrica) confirms that AI tools are now embedded in daily editorial workflows across multiple major continental broadcasters — without adequate institutional governance frameworks. The findings extend the Broadcast Media Africa webinar data from the prior week, now adding documentary evidence that the governance gap identified in Nigeria's bill delay and South Africa's gazette delay has a direct operational expression in the continent's information architecture. The survey identifies three structural vulnerabilities: absence of content provenance standards, no standardised verification protocols for AI-generated footage, and the Liar's Dividend remaining operational. With Nigeria's 2027 election window now inside 18 months, this is not an abstract media governance problem.</p>
+  <div class="meta-row">
+    <span class="source">iAfrica.com — 11 April 2026</span>
+  </div>
+</div>
+
+<div class="story">
+  <div class="rank-badge">AI IN EDUCATION</div>
+  <h3>AI's Real Impact on African Enterprises: Beyond Hype — Connecting Africa Podcast Documents the Execution Gap</h3>
+  <div class="pills">
+    <span class="pill pl-t">Research</span>
+    <span class="pill pl-k">Continental</span>
+    <span class="pill pl-e">Ecosystem</span>
+  </div>
+  <p>Connecting Africa's April podcast "Beyond the Hype: AI's Real Impact on African Enterprises" documents a critical distinction between AI adoption (widespread) and AI execution (narrow). Key finding: KPMG data shows 71% of African CEOs investing in AI, yet most deployments are bottom-up, tactical, and siloed — without coordinated plans for scale, security, or sustainability. The podcast identifies the same "pilot purgatory" pattern documented by HPE and SAP: successful experiments that never reach enterprise impact because of poor integration with core systems, unclear ownership, and weak data foundations. The governance week of 7–14 April is the enabling environment in which this execution gap begins to close — or not.</p>
+  <div class="meta-row">
+    <span class="source">Connecting Africa Podcast — April 2026</span>
+  </div>
+</div>
+
+<!-- SECTION 5: STRATEGIC INSIGHTS -->
+<div class="sec" id="strategic">
+  <div class="sec-num">§ 05</div>
+  <h2>Strategic Insights</h2>
+</div>
+
+<div class="insight-card">
+  <div class="ic-head">Insight 01 — The Governance-Capital Synchronisation</div>
+  <div class="ic-title">For the first time in 2026, governance and capital moved in the same direction in the same week. This is structurally significant — not just positive.</div>
+  <div class="ic-body">South Africa's gazette and Morocco's AI factory MoU in a single week breaks the Q1 2026 pattern of infrastructure capital advancing while governance stalled. The ITWeb AI Summit on 22 April is now the most consequential governance event of Q2 — it is the first public forum where the SA policy's implementation specifics will be interrogated by the financial services, healthcare, and tech sectors that will shape the 2027–2028 regulatory environment. The 60-day comment window is not passive — it is where Africa's most consequential AI governance architecture will be built, quietly, by the organisations willing to engage it.</div>
+</div>
+
+<div class="insight-card" style="background:#2a1055; margin-top:10px;">
+  <div class="ic-head">Insight 02 — Morocco's Integrated Playbook</div>
+  <div class="ic-title">Morocco is executing the only truly integrated national AI strategy on the continent — combining infrastructure, fintech, diplomacy, 5G, and soft power simultaneously.</div>
+  <div class="ic-body">The Nexus AI Factory, GITEX $5B pipeline, Inwi 5G deals, PayTic AI payments launch, 11 Kenya bilateral agreements, and 2030 FIFA World Cup co-hosting are not parallel initiatives — they are a single coordinated strategy. No other African nation has executed at this integration level in 2026. The risk for South Africa, Kenya, Nigeria, and Egypt is not that Morocco is winning — it is that they are not yet playing the same multi-dimensional game. Governance + infrastructure + diplomacy + fintech + culture, deployed together, is what positions a country as an AI hub rather than an AI market.</div>
+</div>
+
+<div class="insight-card" style="background:#5a2a00; margin-top:10px;">
+  <div class="ic-head">Insight 03 — The Infrastructure Stack Is Not a Single Layer</div>
+  <div class="ic-title">Africa's AI infrastructure challenge requires simultaneous solutions at four layers: compute, energy, networking, and connectivity. This week exposed all four.</div>
+  <div class="ic-body">Nexus AI Factory (compute layer). Refiant $5M raise (energy-efficient inference layer). HPE analysis (enterprise networking layer). AfDB $200M Nigeria fiber (connectivity layer). These are not redundant investments — they are necessary and interdependent. An AI data centre without enterprise networking modernisation serves hyperscalers, not local SMEs. Energy-efficient inference without fiber backhaul cannot serve rural populations. The continent's AI infrastructure narrative must evolve from "build the data centre" to "build all four layers in parallel" — the SAP and Connecting Africa analyses this week independently reached the same conclusion.</div>
+</div>
+
+<div class="insight-card" style="background:#0a3020; margin-top:10px;">
+  <div class="ic-head">Insight 04 — The IMF Test</div>
+  <div class="ic-title">The IMF Regional Economic Outlook (16 April) will be the first international institutional test of whether this week's AI governance and capital commitments are priced as durable or aspirational.</div>
+  <div class="ic-body">Brent Crude at $102 following the US-Iran Hormuz blockade, South Africa's manufacturing at -2.8%, the Rand under pressure at R17.25 — these are the macro conditions in which the week's AI optimism will be evaluated. The IMF's Sub-Saharan Africa outlook will provide the risk-adjusted framework within which Equinix's R7.5B, the Nexus $1.28B, and Afreximbank's R176B are contextualised by institutional investors. If the IMF signals downward revision of Sub-Saharan growth, the governance progress of this week will be tested against a more challenging capital allocation environment. Watch the 16 April release carefully.</div>
+</div>
+
+<!-- SECTION 6: OPPORTUNITIES -->
+<div class="sec" id="opportunities">
+  <div class="sec-num">§ 06</div>
+  <h2>Opportunities</h2>
+</div>
+
+<div style="background:#fff; border:1px solid var(--border); padding:16px 18px;">
+  <div class="opp-row">
+    <div class="opp-num">01</div>
+    <div class="opp-body">
+      <div class="opp-title">Submit to South Africa's 60-Day AI Policy Comment Window (Deadline: 10 June 2026)</div>
+      <div class="opp-desc">This is the single most consequential governance participation opportunity in Africa in Q2 2026. Financial services firms, healthcare providers, public sector technology teams, and AI governance specialists have until June 10 to shape sector-specific algorithmic explainability requirements, supervisory oversight structures, and the mandate of the proposed National AI Commission. Late submissions will not carry the same weight. The ITWeb AI Summit on 22 April is the preparation event.</div>
+    </div>
+  </div>
+  <div class="opp-row">
+    <div class="opp-num">02</div>
+    <div class="opp-body">
+      <div class="opp-title">Morocco AI Ecosystem: Skills, Centre of Excellence, and Innovation Hub Partnerships</div>
+      <div class="opp-desc">The Nexus AI Factory's Centre of Excellence and innovation hub components are open to partnership. Nexus Core Systems is explicitly building local AI capability, not just deploying foreign infrastructure. African universities, training institutions, and AI startups that engage now will have first-mover positioning in Morocco's most significant AI infrastructure asset. The timeline is real: Phase 1 activation in Nouaceur is targeted for 2027.</div>
+    </div>
+  </div>
+  <div class="opp-row">
+    <div class="opp-num">03</div>
+    <div class="opp-body">
+      <div class="opp-title">Sustainable AI Infrastructure: Refiant's Raise Signals an Investable Niche</div>
+      <div class="opp-desc">Refiant's $5M raise for energy-efficient AI inference infrastructure positions a previously underinvested niche as an identifiable asset class. Africa's energy-inference gap — where AI workloads threaten to consume 5% of national electricity in grid-strained markets — is a structural problem that cannot be solved by data centres alone. The first fund to build a portfolio thesis around Africa-specific sustainable AI inference will have a market to itself in 2026–2027.</div>
+    </div>
+  </div>
+  <div class="opp-row">
+    <div class="opp-num">04</div>
+    <div class="opp-body">
+      <div class="opp-title">Mauritius FAIR Guidelines: First-Mover AI Governance Compliance Services</div>
+      <div class="opp-desc">Mauritius's new FAIR Guidelines — the first dedicated AI ethics framework from an African SIDS — create an immediate advisory and compliance opportunity for law firms, governance consultants, and AI auditors. Mauritius's financial services sector (banking, insurance, fund administration) is the primary deployment context. The compliance window between guideline publication and regulatory enforcement is the optimal entry point for advisory positioning.</div>
+    </div>
+  </div>
+  <div class="opp-row">
+    <div class="opp-num">05</div>
+    <div class="opp-body">
+      <div class="opp-title">Kenya-Morocco ICT Corridor: East Africa's AI Capital Flows Are Being Redirected</div>
+      <div class="opp-desc">Kenya's 11 bilateral agreements with Morocco — including ICT and digital economy components — signal the formation of a new East Africa-North Africa AI capital corridor. Founders and funds positioned at the intersection of Nairobi and Casablanca with clear sovereign tech offerings will have access to capital flows that do not yet have established intermediaries. AI Everything Kenya (19–21 May) is the immediate entry point for positioning in this corridor.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: RISKS -->
+<div class="sec" id="risks">
+  <div class="sec-num">§ 07</div>
+  <h2>Risks &amp; Threats</h2>
+</div>
+
+<div class="risk-item">
+  <span class="risk-icon">⚠</span>
+  <div><strong>MoU-to-deployment gap: Morocco's AI factory is an MoU, not a building.</strong> The $1.28 billion Nexus AI Factory MoU — while credible, four-party, and Nvidia-backed — must still navigate permitting, renewable energy supply finalisation, ground-breaking, and Phase 1 commissioning before it becomes operational infrastructure. TechCabal's analysis correctly notes that MoUs have a poor conversion rate in African infrastructure. The 2027 Phase 1 timeline is ambitious. Investors and partners should engage on the basis of the institutional framework quality, not the headline capital figure.</div>
+</div>
+
+<div class="risk-item">
+  <span class="risk-icon">⚠</span>
+  <div><strong>South Africa's policy comment window may be captured by incumbents.</strong> The 60-day window (to 10 June) is open, but engagement requires institutional capacity. Large financial services firms, platform companies, and international law firms have compliance teams designed for exactly this. SMEs, AI startups, civil society organisations, and community technology advocates do not. If the comment window produces predominantly incumbent submissions, the resulting regulation will reflect incumbent interests — and the governance gap will reopen in a different form.</div>
+</div>
+
+<div class="risk-item">
+  <span class="risk-icon">⚠</span>
+  <div><strong>Brent at $102 and the Hormuz blockade create a macro stress test for Africa's AI investment cycle.</strong> The US-Iran Hormuz naval blockade, announced 13 April, has pushed Brent Crude to $102 — a 7.2% single-day move. For net oil-importing African economies (South Africa, Kenya, Rwanda, Ethiopia), this is a direct fiscal pressure that competes with AI investment budgets. South Africa's fuel cost increases, Rand pressure, and manufacturing contraction create a challenging environment for the capex commitments that AI governance requires. The IMF outlook on 16 April will quantify this risk.</div>
+</div>
+
+<div class="risk-item">
+  <span class="risk-icon">⚠</span>
+  <div><strong>Nigeria's AI governance vacuum deepens as CLHEEAN deploys without an enacted legislative framework.</strong> The National Digital Economy and E-Governance Bill remains unenacted. Nigeria now has a government AI application in live deployment (CLHEEAN), an AfDB fiber commitment, and zero enforceable AI governance framework. The timeline between now and the 2027 election window is finite. If the bill does not pass before Q4 2026, Nigeria enters its most consequential electoral AI exposure period — and the disinformation risk documented in DAL-026-068 — without the legislative architecture to respond.</div>
+</div>
+
+<div class="risk-item">
+  <span class="risk-icon">⚠</span>
+  <div><strong>African media AI governance gap is now documented, not theoretical.</strong> The iAfrica survey (11 April) confirms that AI tools are operational in African newsrooms without governance frameworks. South Africa's gazette addresses the policy layer — but media-specific AI governance provisions are not yet in the policy text. The Liar's Dividend documented by Broadcast Media Africa is operational now, in newsrooms, in real time. The 60-day comment window is the mechanism to insert media-specific AI governance into South Africa's policy — it will not happen automatically.</div>
+</div>
+
+<!-- SECTION 8: EVENTS -->
+<div class="sec" id="events">
+  <div class="sec-num">§ 08</div>
+  <h2>Events Calendar — Q2 2026</h2>
+</div>
+
+<table class="events-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Event</th>
+      <th>Location</th>
+      <th>Significance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="ev-date">16 Apr</td>
+      <td><strong>IMF Regional Economic Outlook — Sub-Saharan Africa</strong><br><span class="ev-tag live">This week</span></td>
+      <td>Washington DC / Global</td>
+      <td>First international institutional economic assessment post-GITEX and SA policy gazette. Key risk indicator for Africa AI investment cycle.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">22 Apr</td>
+      <td><strong>ITWeb AI Summit 2026</strong><br><span class="ev-tag live">Next week</span></td>
+      <td>Bryanston, Johannesburg</td>
+      <td>First public post-gazette briefing on SA National AI Policy. DCDT leadership keynotes. The governance event of Q2 2026.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">10 Jun</td>
+      <td><strong>SA AI Policy Comment Deadline</strong><br><span class="ev-tag">Action required</span></td>
+      <td>South Africa (DCDT)</td>
+      <td>Last day to submit public comments on South Africa's Draft National AI Policy. Submit via DCDT portal or email.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">19–21 May</td>
+      <td><strong>AI Everything Kenya × GITEX Kenya 2026</strong></td>
+      <td>Nairobi, Kenya</td>
+      <td>15,000+ attendees, 500+ enterprises, 100+ investors. East Africa's flagship AI event and the Kenya-Morocco ICT corridor's primary activation point.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">Q2 2026</td>
+      <td><strong>Nigeria AI Bill — Q2 Target</strong><br><span class="ev-tag live">Watch</span></td>
+      <td>Abuja, Nigeria</td>
+      <td>National Assembly deliberations continue without a confirmed vote date. The legislative gap beneath CLHEEAN's deployment widens with each month of delay.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">Jun 2026</td>
+      <td><strong>MTN Capital Markets Day</strong></td>
+      <td>Johannesburg, SA</td>
+      <td>MTN names AI data centre co-investment partners for South Africa and Nigeria — the connectivity operator layer of Africa's AI infrastructure stack.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">Aug 2026</td>
+      <td><strong>Deep Learning Indaba 2026</strong></td>
+      <td>Nigeria (TBC)</td>
+      <td>First time in Nigeria. Theme: "Sovereign Intelligence." Dataset call open. The continent's preeminent ML research gathering arrives in Africa's largest economy.</td>
+    </tr>
+    <tr>
+      <td class="ev-date">28–29 Oct</td>
+      <td><strong>AI Expo Africa 2026 — 9th Edition</strong></td>
+      <td>Sandton, Johannesburg</td>
+      <td>Africa's largest enterprise AI trade show. 2,300+ delegates. By October, SA policy implementation should be in its post-comment, finalisation phase.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- EDITOR'S NOTE -->
+<div class="ed-note">
+  <div class="en-label">§ Editor's Note — AIW-026-06 · The Weekly African Lens</div>
+  <p>This newsletter began as the AI Intelligence Report and finds its name this week in the form it always aimed for: <strong>The Weekly African Lens</strong> — a deliberate statement that Africa's AI story must be seen on its own terms, through its own optics, without the condescension of development framing or the naïveté of uncritical boosterism.</p>
+  <p style="margin-top: 12px;">This week earns that name. South Africa's AI policy gazette, Morocco's $1.28 billion AI factory, GITEX's $5B deal pipeline, Mauritius's FAIR guidelines, Nigeria's CLHEEAN, AfDB's fiber commitment — in a single week, the continent moved on governance, infrastructure, capital, and execution simultaneously. That has not happened before in a single 7-day window in Africa's AI history.</p>
+  <p style="margin-top: 12px;">The risks are real: Brent at $102, the Hormuz blockade, Nigeria's legislative vacuum, the MoU-to-deployment gap, the comment window capture risk. This newsletter has never been an optimism machine. But the pattern of this week — governance and capital arriving together, not separately — is the structural signal we have been waiting to document since DAL-026-067.</p>
+  <p style="margin-top: 12px;">The 60-day window is open. The question is who uses it.</p>
+  <p style="margin-top: 12px; font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(200,208,220,0.5); letter-spacing: 0.06em;">— The Weekly African Lens Intelligence Desk · Edition #AIW-026-06 · 14 April 2026</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="logo">The Weekly African Lens</div>
+  <p>AI · Machine Learning · Data Science · Across 54 Nations</p>
+  <p>Published every Tuesday · AI Weekly Intelligence — Edition #AIW-026-06 · Week ending 14 April 2026</p>
+  <p style="margin-top:10px;">Subscribe: <a href="https://simphiwemlotshwa.substack.com/">simphiwemlotshwa.substack.com</a></p>
+  <p style="margin-top:8px; font-size:10px; color:#b0a898;">© 2026 The Weekly African Lens. All summaries are paraphrased editorial originals — no verbatim reproduction of source material.</p>
+</div>
+
+</div><!-- /wrapper -->
+</body>
+</html>
