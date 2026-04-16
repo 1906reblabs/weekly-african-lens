@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editorial Standards — The Daily African Lens</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0e0e0e;--cream:#faf7f2;--gold:#c8922a;--rust:#b84c2a;--teal:#1a6b5e;--border:#d8d0c4;--mid-grey:#7a7570;--light-grey:#ede9e3;--deep-blue:#0a1628;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  nav{background:var(--deep-blue);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:18px;color:#fff;}
+  .nav-brand span{color:var(--gold);}
+  .nav-links{display:flex;gap:24px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;}
+  .nav-links a{color:#8a99b8;}
+  .nav-links a:hover{color:#fff;text-decoration:none;}
+
+  .hero{background:var(--ink);padding:48px 32px 40px;text-align:center;}
+  .hero .over{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-0.02em;margin-bottom:14px;}
+  .hero p{font-family:'DM Mono',monospace;font-size:11px;color:#7a8294;letter-spacing:0.12em;text-transform:uppercase;}
+
+  .main{max-width:800px;margin:0 auto;padding:48px 24px 72px;}
+
+  .effective-bar{background:var(--deep-blue);color:#8a99b8;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
+  .effective-bar strong{color:var(--gold);}
+
+  .sec-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid-grey);border-bottom:2px solid var(--ink);padding-bottom:10px;margin:44px 0 22px;}
+
+  .policy-section h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;line-height:1.3;margin-bottom:12px;color:var(--ink);}
+  .policy-section p{font-size:14px;line-height:1.75;color:#2e2a26;margin-bottom:13px;}
+  .policy-section p:last-child{margin-bottom:0;}
+  .policy-section ul{list-style:none;margin:10px 0 14px;display:flex;flex-direction:column;gap:8px;}
+  .policy-section ul li{font-size:14px;line-height:1.65;color:#2e2a26;padding-left:20px;position:relative;}
+  .policy-section ul li::before{content:'§';position:absolute;left:0;color:var(--gold);font-family:'DM Mono',monospace;font-size:10px;top:3px;}
+
+  .highlight-box{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);padding:20px 24px;margin:20px 0;}
+  .highlight-box p{font-size:13.5px;line-height:1.7;color:#2e2a26;margin:0;}
+  .highlight-box p+p{margin-top:10px;}
+  .highlight-box strong{color:var(--ink);}
+
+  /* Source tier cards */
+  .tier-stack{display:flex;flex-direction:column;gap:10px;margin:20px 0;}
+  .tier-card{background:#fff;border:1px solid var(--border);display:grid;grid-template-columns:80px 1fr;min-height:80px;}
+  .tier-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;gap:4px;}
+  .tier-badge .t-num{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;line-height:1;}
+  .tier-badge .t-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;}
+  .tier-card.t1 .tier-badge{background:var(--ink);color:var(--gold);}
+  .tier-card.t2 .tier-badge{background:var(--deep-blue);color:#8ab4e8;}
+  .tier-card.t3 .tier-badge{background:var(--teal);color:#c8eee4;}
+  .tier-card.t4 .tier-badge{background:#4a3f2f;color:#d4c4a8;}
+  .tier-body{padding:16px 20px;}
+  .tier-body .tb-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:6px;}
+  .tier-body .tb-sources{font-size:13px;color:#2e2a26;line-height:1.55;margin-bottom:6px;}
+  .tier-body .tb-sources strong{color:var(--ink);font-weight:600;}
+  .tier-body .tb-note{font-size:12px;color:var(--mid-grey);font-style:italic;line-height:1.5;}
+
+  /* Workflow agents */
+  .agent-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0;}
+  .agent-card{background:#fff;border:1px solid var(--border);padding:18px 20px;}
+  .agent-card .ag-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--gold);margin-bottom:6px;}
+  .agent-card h4{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;margin-bottom:6px;color:var(--ink);}
+  .agent-card p{font-size:12.5px;line-height:1.6;color:#3a3530;margin:0;}
+
+  /* Edition structure */
+  .structure-box{background:var(--deep-blue);color:#e0dbd4;padding:24px 28px;margin:20px 0;}
+  .structure-box .sb-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .structure-box .sb-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;}
+  .structure-box .sb-item{font-size:12.5px;color:#8a99b8;padding-left:16px;position:relative;line-height:1.5;}
+  .structure-box .sb-item::before{content:'§';position:absolute;left:0;color:var(--gold);font-family:'DM Mono',monospace;font-size:10px;}
+  .structure-box .sb-item strong{color:#c8d4e8;}
+
+  /* Stat bar */
+  .stat-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);margin:20px 0;}
+  .stat-item{background:#fff;padding:18px 16px;text-align:center;border-right:1px solid var(--border);}
+  .stat-item:last-child{border-right:none;}
+  .stat-item .s-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--ink);line-height:1;}
+  .stat-item .s-unit{font-family:'DM Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-top:2px;}
+  .stat-item .s-desc{font-size:11px;color:var(--mid-grey);margin-top:4px;line-height:1.4;}
+
+  /* Principles list */
+  .principle-list{display:flex;flex-direction:column;gap:10px;margin:20px 0;}
+  .principle{background:#fff;border:1px solid var(--border);border-left:4px solid var(--teal);padding:16px 20px;display:flex;gap:16px;align-items:flex-start;}
+  .principle .p-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--teal);font-weight:500;white-space:nowrap;padding-top:1px;}
+  .principle .p-body h4{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+  .principle .p-body p{font-size:13px;color:#3a3530;line-height:1.6;margin:0;}
+
+  .contact-block{background:var(--deep-blue);padding:28px 32px;margin-top:40px;}
+  .contact-block h3{font-family:'Playfair Display',serif;font-size:18px;color:#fff;margin-bottom:8px;}
+  .contact-block p{font-size:13px;color:#8a99b8;line-height:1.65;margin-bottom:6px;}
+  .contact-block a{color:var(--gold);}
+  .contact-block .c-detail{font-family:'DM Mono',monospace;font-size:11px;color:#c8d4e8;letter-spacing:0.06em;}
+
+  footer{background:var(--ink);color:#7a8294;text-align:center;padding:28px 24px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.06em;}
+  footer strong{color:#c8d4e8;}
+  footer .foot-links{display:flex;justify-content:center;gap:20px;margin-top:10px;flex-wrap:wrap;}
+  footer .foot-links a{color:#7a8294;font-size:10px;}
+  footer .foot-links a:hover{color:#c8d4e8;text-decoration:none;}
+
+  @media(max-width:580px){
+    .tier-card{grid-template-columns:64px 1fr;}
+    .agent-grid{grid-template-columns:1fr;}
+    .structure-box .sb-cols{grid-template-columns:1fr;}
+    .stat-bar{grid-template-columns:1fr 1fr;}
+    .stat-item:nth-child(2){border-right:none;}
+    .stat-item:nth-child(3){border-top:1px solid var(--border);}
+    .stat-item:nth-child(4){border-top:1px solid var(--border);}
+    nav{padding:12px 20px;}
+    .main{padding:32px 18px 60px;}
+    .contact-block{padding:24px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">The Daily African Lens<span>.</span></div>
+  <div class="nav-links">
+    <a href="index.html">Archive</a>
+    <a href="weekly/index.html">AI Weekly</a>
+    <a href="editions/index.html">Daily</a>
+    <a href="https://simphiwemlotshwa.substack.com/" target="_blank">Subscribe</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="over">Methodology &amp; Standards</div>
+  <h1>Editorial<br>Standards</h1>
+  <p>How we select, verify, frame, and publish · Agentic Workflow v1.0</p>
+</div>
+
+<div class="main">
+
+  <div class="effective-bar">
+    <span>Document reference: <strong>DAL-EDITORIAL-001</strong></span>
+    <span>Effective: <strong>15 April 2026</strong> · Workflow: <strong>Agentic v1.0</strong></span>
+  </div>
+
+  <!-- 01 MISSION -->
+  <div class="sec-label">§ 01 — Mission</div>
+  <div class="policy-section">
+    <h2>What this publication is for</h2>
+    <p>The Daily African Lens exists to provide timely, rigorous, and independently produced intelligence on artificial intelligence, machine learning, and data science developments across all 54 African Union member states. We cover the continent not as a monolith but as 54 distinct jurisdictions — each with its own policy environment, infrastructure conditions, funding ecosystem, and AI adoption trajectory.</p>
+    <p>Our purpose is to reduce information asymmetry. Africa's AI story is covered inconsistently by international media, with Nigeria, Kenya, South Africa, and Egypt receiving the majority of attention. Our mandate is broader: to track signal across every AU member state, surface developments that would otherwise go unreported internationally, and synthesise that signal into structured intelligence that is useful to policymakers, investors, researchers, practitioners, and the informed public.</p>
+
+    <div class="stat-bar">
+      <div class="stat-item">
+        <div class="s-num">54</div>
+        <div class="s-unit">Nations</div>
+        <div class="s-desc">All African Union member states in scope</div>
+      </div>
+      <div class="stat-item">
+        <div class="s-num">20</div>
+        <div class="s-unit">Max items</div>
+        <div class="s-desc">Per daily edition, ranked by significance</div>
+      </div>
+      <div class="stat-item">
+        <div class="s-num">4</div>
+        <div class="s-unit">Source tiers</div>
+        <div class="s-desc">From wire services to academic output</div>
+      </div>
+      <div class="stat-item">
+        <div class="s-num">7</div>
+        <div class="s-unit">Agents</div>
+        <div class="s-desc">Agentic workflow components</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 SERIES -->
+  <div class="sec-label">§ 02 — Publication series</div>
+  <div class="policy-section">
+    <h2>The two series and their structures</h2>
+    <p>The Daily African Lens publishes two distinct series, each with a defined structure, cadence, and reference format. Both are archived permanently at this site.</p>
+
+    <div class="structure-box">
+      <div class="sb-title">Daily African Lens (DAL) — daily at 6:00 AM SAST</div>
+      <div class="sb-cols">
+        <div class="sb-item"><strong>Format:</strong> DAL-[YY]-[NNN] e.g. DAL-026-088</div>
+        <div class="sb-item"><strong>Window:</strong> 24-hour SAST coverage window</div>
+        <div class="sb-item"><strong>Cap:</strong> Maximum 20 ranked items per edition</div>
+        <div class="sb-item"><strong>Scope:</strong> All 54 AU member states</div>
+        <div class="sb-item"><strong>Focus:</strong> AI · ML · Data Science · Digital Policy</div>
+        <div class="sb-item"><strong>Ranking:</strong> By continental significance, not recency</div>
+      </div>
+    </div>
+
+    <div class="structure-box" style="margin-top:10px;">
+      <div class="sb-title">AI Weekly Intelligence (AIW) — every Tuesday at 6:00 AM SAST</div>
+      <div class="sb-cols">
+        <div class="sb-item"><strong>Format:</strong> AIW-[YY]-[NN] e.g. AIW-026-06</div>
+        <div class="sb-item"><strong>Window:</strong> Tuesday 06:00 → Tuesday 05:59 SAST</div>
+        <div class="sb-item"><strong>§ 01:</strong> Executive Summary — 10 signals</div>
+        <div class="sb-item"><strong>§ 02:</strong> Key Developments + 2nd-order effects</div>
+        <div class="sb-item"><strong>§ 03:</strong> Market &amp; Business Signals</div>
+        <div class="sb-item"><strong>§ 04:</strong> Strategic Insights — 3 macro themes</div>
+        <div class="sb-item"><strong>§ 05:</strong> Opportunities — actionable</div>
+        <div class="sb-item"><strong>§ 06:</strong> Risks &amp; Threats</div>
+        <div class="sb-item"><strong>§ 07:</strong> Events Watch</div>
+        <div class="sb-item"><strong>§ 08:</strong> Intelligence Close</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 SOURCE TIERS -->
+  <div class="sec-label">§ 03 — Source tier methodology</div>
+  <div class="policy-section">
+    <h2>How we classify and weight sources</h2>
+    <p>Every claim in every edition is sourced to a specific publication and date, displayed in the edition's source line. Sources are classified into four tiers. Higher-tier sources receive greater weight in story selection and ranking decisions. Where multiple tiers cover the same story, we cross-reference across tiers before finalising our treatment.</p>
+
+    <div class="tier-stack">
+      <div class="tier-card t1">
+        <div class="tier-badge">
+          <div class="t-num">T1</div>
+          <div class="t-label">Wire</div>
+        </div>
+        <div class="tier-body">
+          <div class="tb-title">International wire and broadcast services</div>
+          <div class="tb-sources"><strong>Reuters, BBC, AFP, Bloomberg, Associated Press</strong></div>
+          <div class="tb-note">Highest editorial standards, global distribution networks, experienced Africa desks. Tier 1 coverage of an African AI story is treated as a continental significance signal in itself — international wire pickup indicates the story has crossed a threshold of global relevance.</div>
+        </div>
+      </div>
+      <div class="tier-card t2">
+        <div class="tier-badge">
+          <div class="t-num">T2</div>
+          <div class="t-label">Specialist</div>
+        </div>
+        <div class="tier-body">
+          <div class="tb-title">African technology and business media</div>
+          <div class="tb-sources"><strong>TechCabal, ITWeb, Connecting Africa, TechAfrica News, Disrupt Africa, Business Tech, Ecofin Agency, Morocco World News, North Africa Post, Africa Intelligence Brief</strong></div>
+          <div class="tb-note">The primary tier for African tech coverage. These publications have on-the-ground editorial knowledge, source relationships, and specialist domain expertise that Tier 1 services rarely match for African AI stories. Tier 2 is our editorial workhorse.</div>
+        </div>
+      </div>
+      <div class="tier-card t3">
+        <div class="tier-badge">
+          <div class="t-num">T3</div>
+          <div class="t-label">Institutional</div>
+        </div>
+        <div class="tier-body">
+          <div class="tb-title">Government, regulatory, and institutional sources</div>
+          <div class="tb-sources"><strong>Government gazettes, regulatory authority publications, AfDB, World Bank, IMF, AU Commission, NEPAD, UN ECA, company press releases and investor communications</strong></div>
+          <div class="tb-note">Primary sources for policy and regulatory developments. A Government Gazette entry (e.g. South Africa's AI Policy gazette) is treated as definitive for the policy fact it establishes, regardless of whether Tier 1 or 2 media have covered it. Tier 3 sources are used directly for policy, investment, and institutional announcements.</div>
+        </div>
+      </div>
+      <div class="tier-card t4">
+        <div class="tier-badge">
+          <div class="t-num">T4</div>
+          <div class="t-label">Academic</div>
+        </div>
+        <div class="tier-body">
+          <div class="tb-title">Research, academic, and civil society output</div>
+          <div class="tb-sources"><strong>Peer-reviewed journals, university research centres (DAIR Institute, Masakhane, Deep Learning Indaba), think tank reports, civil society research publications</strong></div>
+          <div class="tb-note">Used for longitudinal context, empirical grounding, and research findings. Tier 4 sources anchor the "second-order effects" and "strategic insights" sections of AI Weekly reports. We distinguish between pre-prints and peer-reviewed publications and note the distinction where relevant.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 SELECTION -->
+  <div class="sec-label">§ 04 — Selection and ranking criteria</div>
+  <div class="policy-section">
+    <h2>How stories are chosen and ordered</h2>
+    <p>The 20-item cap on daily editions is a deliberate editorial constraint. It forces prioritisation over comprehensiveness — we rank by continental significance, not by recency or volume. A story about a $1.28 billion AI infrastructure commitment in Morocco ranks above a product launch announcement regardless of which broke first.</p>
+    <p>The criteria applied to every candidate story are as follows:</p>
+
+    <div class="principle-list">
+      <div class="principle">
+        <div class="p-num">C-01</div>
+        <div class="p-body">
+          <h4>Continental significance</h4>
+          <p>Does this development affect AI adoption, governance, infrastructure, or investment across more than one country, or does it set a precedent with pan-African implications? Stories with continental reach rank above nationally contained stories of equivalent prominence.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">C-02</div>
+        <div class="p-body">
+          <h4>Capital magnitude</h4>
+          <p>Investment commitments, funding rounds, and infrastructure deals are ranked in part by their scale. A R7.5 billion data centre commitment (Equinix, South Africa) and a $1.28 billion AI factory MoU (Nexus, Morocco) are tier-one stories. A $500K seed round is context, not a lead item.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">C-03</div>
+        <div class="p-body">
+          <h4>Policy and regulatory moment</h4>
+          <p>Legislative milestones — gazetting, passage, deadline, consultation close — are treated as discrete events with permanent archival value. A policy that fails to pass its deadline is as significant as one that does; both represent a moment in the continent's AI governance trajectory.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">C-04</div>
+        <div class="p-body">
+          <h4>Second-order effect potential</h4>
+          <p>We explicitly model what a development implies beyond its immediate facts. A fiber investment approval is significant not just as infrastructure spending but as the enabling layer for AI service delivery. Stories with high second-order effect potential rank above stories that are significant in isolation only.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">C-05</div>
+        <div class="p-body">
+          <h4>Geographic distribution</h4>
+          <p>We actively work against the tendency to over-index on South Africa, Nigeria, Kenya, and Egypt. Where a story from a less-covered AU member state meets the significance threshold, it is included. We track nation coverage across editions to identify systematic gaps.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">C-06</div>
+        <div class="p-body">
+          <h4>Source tier confirmation</h4>
+          <p>A story covered only by a single Tier 3 press release and not yet confirmed by Tier 1 or Tier 2 reporting is included with appropriate qualification. We note the source tier and, where possible, cross-reference before ranking highly. We do not wait for Tier 1 pickup before covering a significant African story — that would systematically disadvantage less-internationally-covered nations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 ATTRIBUTION -->
+  <div class="sec-label">§ 05 — Attribution and paraphrasing policy</div>
+  <div class="policy-section">
+    <h2>How we handle source material</h2>
+    <p>Every edition of The Daily African Lens carries a footer note: <em>"All summaries are paraphrased editorial originals — no verbatim reproduction of source material."</em> This is not boilerplate. It describes a deliberate production standard that applies to every item in every edition.</p>
+
+    <div class="highlight-box">
+      <p><strong>The standard in practice:</strong> We do not quote source articles. We read, assess, and rewrite — expressing the substance of what a source reports in our own editorial voice, with attribution to the source. The source line at the end of each item (e.g. "TechCabal · Morocco World News — 14 April 2026") identifies where we drew the information, but the text above it is original to this publication.</p>
+    </div>
+
+    <p>This approach serves three purposes: it respects the intellectual property of the publications we draw from; it ensures our analysis and framing are genuinely ours rather than aggregated fragments; and it produces a more useful output — one that synthesises across multiple sources rather than excerpting from one.</p>
+    <p>Where a direct quote from a primary source (a government official, a company statement, a research finding) is material to the story, we may use a brief attributed quotation with clear sourcing. This is the exception, not the standard mode of reporting.</p>
+    <p>Source lines in our editions follow the format: <code>[Publication(s)] — [Date range]</code>. Where multiple Tier 2 sources covered the same story, all are listed. Where a Tier 3 primary source (a government gazette, a company announcement) is the origin, it is listed by name and document reference where available.</p>
+  </div>
+
+  <!-- 06 WORKFLOW -->
+  <div class="sec-label">§ 06 — Agentic workflow v1.0</div>
+  <div class="policy-section">
+    <h2>How each edition is produced</h2>
+    <p>The Daily African Lens is produced using an agentic AI workflow — a structured sequence of seven specialised agents that handle distinct stages of the production process, from source monitoring to final publication. The editorial framing, analytical voice, ranking decisions, and second-order effect reasoning in our output represent the product of this workflow operating under defined editorial parameters set by the human editorial desk.</p>
+    <p>We are transparent about this production method because we believe it is material to how readers assess and use our content. Agentic production does not diminish editorial quality; it enables consistency, speed, and continental coverage scope that would be unachievable by a small human team covering 54 nations daily.</p>
+
+    <div class="agent-grid">
+      <div class="agent-card">
+        <div class="ag-num">Agent 01</div>
+        <h4>Source Monitor</h4>
+        <p>Continuously scans the four source tiers across all 54 AU member states. Identifies candidate stories within the 24-hour SAST window and flags them for the selection pipeline.</p>
+      </div>
+      <div class="agent-card">
+        <div class="ag-num">Agent 02</div>
+        <h4>Significance Ranker</h4>
+        <p>Applies the six selection criteria (C-01 through C-06) to each candidate story, producing a ranked shortlist that does not exceed 20 items for daily editions.</p>
+      </div>
+      <div class="agent-card">
+        <div class="ag-num">Agent 03</div>
+        <h4>Cross-Reference Verifier</h4>
+        <p>Cross-checks ranked items across source tiers, identifies single-source stories requiring qualification, and flags factual discrepancies between sources covering the same event.</p>
+      </div>
+      <div class="agent-card">
+        <div class="ag-num">Agent 04</div>
+        <h4>Editorial Writer</h4>
+        <p>Produces the paraphrased editorial summaries for each ranked item, applying the publication's voice and the no-verbatim-reproduction standard. Generates source line attributions.</p>
+      </div>
+      <div class="agent-card">
+        <div class="ag-num">Agent 05</div>
+        <h4>Second-Order Analyst</h4>
+        <p>For AI Weekly Intelligence reports: models the downstream implications of key developments. Responsible for the "2nd-order effects" annotations and the strategic insights sections.</p>
+      </div>
+      <div class="agent-card">
+        <div class="ag-num">Agent 06</div>
+        <h4>Risk &amp; Opportunity Mapper</h4>
+        <p>Structures the Risks and Opportunities sections of weekly reports. Applies a geopolitical, regulatory, and capital-allocation lens to the week's developments.</p>
+      </div>
+      <div class="agent-card">
+        <div class="ag-num">Agent 07</div>
+        <h4>Publisher &amp; Formatter</h4>
+        <p>Assembles the final edition HTML, applies the design system, generates edition metadata (reference number, date stamp, source lines), and prepares both the archive version and the Substack newsletter distribution.</p>
+      </div>
+    </div>
+
+    <p>The workflow operates under continuous improvement — <code>v1.0</code> indicates the current stable release of the pipeline. Changes to the workflow that materially affect editorial output or methodology are versioned and noted in the relevant editions.</p>
+  </div>
+
+  <!-- 07 INDEPENDENCE -->
+  <div class="sec-label">§ 07 — Editorial independence</div>
+  <div class="policy-section">
+    <h2>What independence means in practice</h2>
+    <p>The Daily African Lens does not accept payment for coverage, positive framing, or editorial positioning of any kind. We have no advertising relationships. We are not sponsored by any of the companies, governments, or institutions we cover.</p>
+    <p>The following principles govern every editorial decision:</p>
+    <ul>
+      <li><strong>No pay-to-play.</strong> No company, government, or institution can purchase coverage, a higher ranking, or more favourable framing in any edition.</li>
+      <li><strong>No conflicts of interest.</strong> Where a member of the editorial desk or the agentic workflow team has a financial or personal relationship with a covered entity, that entity is not covered in that edition and the potential conflict is noted in the editorial record.</li>
+      <li><strong>Critical coverage is not punished.</strong> Our risk sections, regulatory assessments, and second-order effect analysis include negative framings where the evidence supports them. We do not soften critical analysis to protect relationships.</li>
+      <li><strong>MoU scepticism is applied consistently.</strong> We distinguish between signed agreements, announced commitments, and deployed outcomes. A memorandum of understanding is noted as such — not reported as completed infrastructure.</li>
+      <li><strong>Corrections do not disappear.</strong> When we make a factual error, we correct it in the archive version and note the correction publicly. We do not silently edit editions.</li>
+    </ul>
+  </div>
+
+  <!-- 08 CORRECTIONS -->
+  <div class="sec-label">§ 08 — Corrections policy</div>
+  <div class="policy-section">
+    <h2>How we handle errors</h2>
+    <p>We distinguish between three types of error and handle each differently:</p>
+    <ul>
+      <li><strong>Factual error</strong> — a demonstrably incorrect fact (wrong figure, incorrect date, misidentified entity). Corrected in the archived edition with a visible correction note, and noted in the next available DAL or AIW edition. The correction note follows the format: <em>Correction [DAL-026-NNN, Item N]: [original claim] — [corrected claim]. Corrected [date].</em></li>
+      <li><strong>Attribution error</strong> — a claim correctly reported but attributed to the wrong source. Corrected in the archived edition with the accurate source line. No newsletter correction required unless the attribution was material to the story's significance assessment.</li>
+      <li><strong>Analytical disagreement</strong> — a reader or subject disputes our framing, ranking, or second-order effect reasoning, not an underlying fact. We consider these seriously and may note an alternative perspective in a subsequent edition, but do not issue corrections for analytical positions we continue to hold.</li>
+    </ul>
+    <p>To submit a correction, include the edition reference number, the specific item, the claim you believe is in error, and supporting evidence. Contact details are in Section 09 below. We review all correction requests within 5 business days.</p>
+  </div>
+
+  <div class="contact-block">
+    <h3>Editorial contact</h3>
+    <p>For corrections, methodology questions, tip submissions, or partnership enquiries, contact the editorial desk. We respond to all substantive editorial enquiries.</p>
+    <p class="c-detail">The Daily African Lens · Intelligence Desk · Johannesburg, South Africa</p>
+    <p style="margin-top:12px;"><a href="https://simphiwemlotshwa.substack.com/" target="_blank">Contact via Substack →</a></p>
+    <p style="margin-top:10px;font-family:'DM Mono',monospace;font-size:10px;color:#8a99b8;">
+      Related: <a href="privacy.html" style="color:var(--gold);">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:var(--gold);">Terms of Use</a>
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>The Daily African Lens</strong> · AI · Machine Learning · Data Science · Across 54 Nations</p>
+  <p style="margin-top:8px;">Published at 6:00 AM SAST · Archive hosted on GitHub Pages · © 2026 The Daily African Lens</p>
+  <div class="foot-links">
+    <a href="index.html">Archive</a>
+    <a href="weekly/index.html">AI Weekly</a>
+    <a href="editions/index.html">Daily Editions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="editorial.html">Editorial Standards</a>
+    <a href="https://simphiwemlotshwa.substack.com/" target="_blank">Subscribe</a>
+  </div>
+</footer>
+
+</body>
+</html>
