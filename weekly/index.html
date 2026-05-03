@@ -1,806 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Weekly Intelligence — The Weekly African Lens</title>
-  <meta name="description" content="AI Weekly Intelligence reports covering Africa's AI, machine learning, and data science developments across 54 nations. Signal, strategy, and second-order effects every Tuesday.">
-  <!-- Google Search Console verification -->
-  <meta name="google-site-verification" content="dd09d3fdf11fc4c8">
-  <!-- Sitemap -->
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/weekly-african-lens/sitemap.xml">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --ink:        #0e0e0e;
-      --cream:      #faf7f2;
-      --gold:       #c8922a;
-      --rust:       #b84c2a;
-      --teal:       #1a6b5e;
-      --border:     #d8d0c4;
-      --mid-grey:   #7a7570;
-      --light-grey: #ede9e3;
-      --deep-blue:  #0a1628;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body { background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
-
-    a { color: var(--teal); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ── NAV ── */
-    nav {
-      background: var(--deep-blue);
-      padding: 14px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .nav-brand {
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      font-size: 18px;
-      color: #fff;
-      letter-spacing: -0.01em;
-      text-decoration: none;
-    }
-
-    .nav-brand span { color: var(--gold); }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .nav-links a { color: #8a99b8; }
-    .nav-links a:hover { color: var(--gold); text-decoration: none; }
-    .nav-links a.active { color: var(--gold); }
-
-    /* ── SERIES HERO ── */
-    .series-hero {
-      background: var(--deep-blue);
-      padding: 52px 32px 44px;
-    }
-
-    .series-hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 32px;
-      align-items: start;
-    }
-
-    .series-over {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-
-    .series-hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 5vw, 52px);
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .series-hero h1 em {
-      color: var(--gold);
-      font-style: normal;
-    }
-
-    .series-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #7a8ca8;
-    }
-
-    /* ── REPORT STRUCTURE PANEL ── */
-    .structure-panel {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 18px 20px;
-      min-width: 220px;
-    }
-
-    .structure-panel-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-
-    .structure-panel ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .structure-panel li {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: #8a99b8;
-      letter-spacing: 0.04em;
-      line-height: 1.4;
-    }
-
-    .structure-panel li strong { color: var(--gold); }
-
-    .structure-panel .cadence {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      color: #5a6880;
-      text-transform: uppercase;
-    }
-
-    /* ── MAIN ── */
-    .main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 24px 72px;
-    }
-
-    /* ── SECTION LABEL ── */
-    .sec-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--mid-grey);
-      border-bottom: 2px solid var(--ink);
-      padding-bottom: 10px;
-      margin: 52px 0 24px;
-    }
-
-    /* ── FEATURED LATEST REPORT ── */
-    .featured-report {
-      background: var(--deep-blue);
-      padding: 32px 32px 28px;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-
-    .featured-report::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 200px; height: 200px;
-      background: var(--gold);
-      opacity: 0.05;
-      border-radius: 50%;
-    }
-
-    .featured-report::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: -20px;
-      width: 160px; height: 160px;
-      background: var(--teal);
-      opacity: 0.06;
-      border-radius: 50%;
-    }
-
-    .fr-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .fr-badge {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--deep-blue);
-      padding: 3px 9px;
-      font-weight: 600;
-    }
-
-    .fr-badge-new {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      background: var(--rust);
-      color: #fff;
-      padding: 3px 9px;
-    }
-
-    .fr-window {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.08em;
-      color: #4a5568;
-    }
-
-    .featured-report h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(20px, 3.5vw, 28px);
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.25;
-      margin-bottom: 8px;
-    }
-
-    .featured-report h2 em {
-      color: var(--gold);
-      font-style: italic;
-    }
-
-    .fr-subtitle {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: #7a8ca8;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-    }
-
-    .fr-summary {
-      font-size: 13px;
-      color: #8a99b8;
-      line-height: 1.7;
-      max-width: 640px;
-      margin-bottom: 20px;
-    }
-
-    /* Signal tags row */
-    .fr-signals {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 22px;
-    }
-
-    .signal-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.08em;
-      background: rgba(255,255,255,0.06);
-      color: #8a99b8;
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 3px 8px;
-    }
-
-    .signal-tag.gold { background: rgba(200,146,42,0.15); color: var(--gold); border-color: rgba(200,146,42,0.3); }
-    .signal-tag.teal { background: rgba(26,107,94,0.2); color: #5dbfb0; border-color: rgba(26,107,94,0.35); }
-
-    /* Stats strip */
-    .fr-stats {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 18px;
-      margin-bottom: 20px;
-    }
-
-    .fr-stat .val {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .fr-stat .lbl {
-      font-family: 'DM Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #5a6880;
-      margin-top: 4px;
-    }
-
-    .fr-read-btn {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--deep-blue);
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 10px 20px;
-      font-weight: 600;
-      position: relative;
-      z-index: 1;
-    }
-
-    .fr-read-btn:hover { background: #fff; text-decoration: none; }
-
-    /* ── PUBLISHED REPORTS GRID ── */
-    .reports-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-
-    .report-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      padding: 20px 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .rc-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .rc-badge {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      background: var(--ink);
-      color: var(--cream);
-      padding: 2px 7px;
-    }
-
-    .rc-window {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      color: var(--mid-grey);
-      letter-spacing: 0.04em;
-    }
-
-    .report-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .rc-signals {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-bottom: 14px;
-      margin-top: 2px;
-    }
-
-    .rc-signal {
-      font-family: 'DM Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 0.06em;
-      background: var(--light-grey);
-      color: var(--mid-grey);
-      padding: 2px 6px;
-      border-radius: 2px;
-    }
-
-    .rc-desc {
-      font-size: 12px;
-      color: var(--mid-grey);
-      line-height: 1.6;
-      margin-bottom: 16px;
-      flex: 1;
-    }
-
-    .rc-read-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal);
-      font-weight: 500;
-      align-self: flex-start;
-      border-bottom: 1px solid var(--teal);
-      padding-bottom: 1px;
-    }
-
-    .rc-read-link:hover { color: var(--ink); border-color: var(--ink); text-decoration: none; }
-
-    /* ── COMING SOON SECTION ── */
-    .coming-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 12px;
-    }
-
-    .coming-card {
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--border);
-      background: var(--cream);
-      padding: 18px 18px 16px;
-      opacity: 0.75;
-    }
-
-    .coming-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .coming-badge {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      background: var(--mid-grey);
-      color: #fff;
-      padding: 2px 7px;
-    }
-
-    .coming-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .coming-signals {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-bottom: 10px;
-    }
-
-    .coming-signal {
-      font-family: 'DM Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 0.06em;
-      background: var(--light-grey);
-      color: var(--mid-grey);
-      padding: 2px 6px;
-      border-radius: 2px;
-    }
-
-    .coming-desc {
-      font-size: 12px;
-      color: var(--mid-grey);
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .coming-soon-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--mid-grey);
-    }
-
-    /* ── SERIES SUMMARY STRIP ── */
-    .series-strip {
-      background: var(--deep-blue);
-      margin-top: 56px;
-      padding: 28px 24px;
-    }
-
-    .series-strip-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .ss-text strong {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #c8d4e8;
-      margin-bottom: 4px;
-    }
-
-    .ss-text span {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      color: #5a6880;
-    }
-
-    .ss-subscribe {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--deep-blue);
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 10px 20px;
-      font-weight: 600;
-    }
-
-    .ss-subscribe:hover { background: #fff; text-decoration: none; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      color: #7a8294;
-      text-align: center;
-      padding: 32px 24px;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-    }
-
-    footer strong { color: #c8d4e8; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      .series-hero-inner { grid-template-columns: 1fr; }
-      .structure-panel { min-width: unset; }
-      .fr-stats { gap: 18px; }
-      nav { padding: 12px 16px; }
-      .series-hero { padding: 36px 16px 32px; }
-      .main { padding: 0 16px 56px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Weekly Intelligence — The Weekly African Lens</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0e0e;
+    --cream: #faf7f2;
+    --gold: #c8922a;
+    --gold-light: #f0d898;
+    --rust: #b84c2a;
+    --teal: #1a6b5e;
+    --teal-light: #e3f2ee;
+    --border: #d8d0c4;
+    --mid-grey: #7a7570;
+    --light-grey: #ede9e3;
+    --deep-blue: #0a1628;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; line-height: 1.7; }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--deep-blue);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .nav-brand { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: #fff; letter-spacing: -0.01em; }
+  .nav-brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 24px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links a { color: #8a99b8; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); text-decoration: none; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    padding: 52px 32px 40px;
+    text-align: center;
+  }
+  .hero .over { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 52px); font-weight: 900; color: #fff; line-height: 1; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .hero .tag { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #7a8ca8; }
+  .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 28px; }
+  .hs-val { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); font-weight: 700; }
+  .hs-lbl { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a99b8; margin-top: 2px; }
+
+  /* ── MAIN ── */
+  .main { max-width: 900px; margin: 0 auto; padding: 0 24px 60px; }
+
+  /* ── SECTION LABEL ── */
+  .sec-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+    margin: 48px 0 24px;
+  }
+
+  /* ── LATEST FEATURE ── */
+  .latest-feature {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .feat-big {
+    background: var(--deep-blue);
+    padding: 30px 28px 26px;
+    position: relative;
+    overflow: hidden;
+  }
+  .feat-big::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 120px; height: 120px;
+    background: var(--gold);
+    opacity: 0.07;
+    border-radius: 50%;
+  }
+  .feat-big .fb-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .feat-big h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .feat-big p { font-size: 13px; color: #8a99b8; line-height: 1.6; margin-bottom: 14px; }
+  .feat-big .fb-meta { font-family: 'DM Mono', monospace; font-size: 10px; color: #4a5568; letter-spacing: 0.04em; }
+  .feat-big .read-btn {
+    display: inline-block;
+    margin-top: 16px;
+    background: var(--gold);
+    color: var(--deep-blue);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    font-weight: 600;
+    transition: background 0.12s;
+  }
+  .feat-big .read-btn:hover { background: #fff; text-decoration: none; }
+
+  .feat-stack { display: flex; flex-direction: column; gap: 12px; }
+  .feat-sm {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 16px 18px;
+    flex: 1;
+  }
+  .feat-sm .fs-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .feat-sm h3 { font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 5px; }
+  .feat-sm .fs-meta { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--mid-grey); }
+
+  /* ── EDITION GRID ── */
+  .edition-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .ed-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .ed-card:hover { box-shadow: 3px 3px 0 var(--ink); }
+  .ed-card .ec-stripe {
+    height: 3px;
+    background: var(--ink);
+  }
+  .ed-card.is-new .ec-stripe { background: var(--gold); }
+  .ed-card.is-available .ec-stripe { background: var(--teal); }
+  .ed-card.is-coming .ec-stripe { background: var(--border); }
+
+  .ed-card .ec-body { padding: 18px 18px 14px; flex: 1; display: flex; flex-direction: column; }
+  .ec-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .ec-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+  .ec-badge.new  { background: var(--gold); color: var(--ink); font-weight: 600; }
+  .ec-badge.live { background: var(--teal); color: #fff; }
+  .ec-badge.soon { background: var(--light-grey); color: var(--mid-grey); }
+
+  .ec-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--mid-grey);
+    letter-spacing: 0.04em;
+  }
+  .ed-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 8px;
+    flex: 1;
+  }
+  .ec-theme {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--mid-grey);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .ec-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--mid-grey);
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+  .ec-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    padding: 5px 12px;
+    align-self: flex-start;
+    transition: all 0.12s;
+  }
+  .ec-link:hover { background: var(--teal); color: #fff; text-decoration: none; }
+  .ec-link.disabled {
+    color: var(--mid-grey);
+    border-color: var(--border);
+    pointer-events: none;
+  }
+
+  /* ── WHAT'S IN EACH REPORT ── */
+  .sections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .section-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 14px 16px;
+  }
+  .section-card h4 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .section-card p { font-size: 11.5px; color: var(--mid-grey); line-height: 1.5; }
+  .section-card.s1 { border-top-color: var(--teal); }
+  .section-card.s2 { border-top-color: var(--rust); }
+  .section-card.s3 { border-top-color: #2e7d32; }
+  .section-card.s4 { border-top-color: #1565c0; }
+
+  /* ── ARCHIVE FULL TABLE ── */
+  .archive-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .archive-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    background: var(--light-grey);
+    padding: 9px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+  .archive-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  .archive-table tr:last-child td { border-bottom: none; }
+  .archive-table tr.is-new td { background: #fffbf0; }
+  .archive-table td a { color: var(--teal); font-weight: 500; }
+  .at-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 2px 7px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .at-badge.ink  { background: var(--ink); color: var(--cream); }
+  .at-badge.gold { background: var(--gold); color: var(--ink); font-weight: 600; }
+  .at-badge.teal { background: var(--teal); color: #fff; }
+  .at-badge.grey { background: var(--light-grey); color: var(--mid-grey); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: #7a8294;
+    text-align: center;
+    padding: 32px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+  footer strong { color: #c8d4e8; }
+  footer a { color: #7a8294; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .latest-feature { grid-template-columns: 1fr; }
+    .edition-grid { grid-template-columns: 1fr 1fr; }
+    .sections-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { gap: 20px; }
+    nav { padding: 12px 18px; }
+  }
+  @media (max-width: 480px) {
+    .edition-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav>
-  <a class="nav-brand" href="../index.html">The Weekly African Lens<span>.</span></a>
+  <a href="../index.html" style="text-decoration:none;">
+    <div class="nav-brand">The Weekly African Lens<span>.</span></div>
+  </a>
   <div class="nav-links">
     <a href="../index.html">Archive</a>
     <a href="index.html" class="active">AI Weekly</a>
     <a href="../editions/index.html">Daily Editions</a>
-    <a href="../about.html">About</a>
     <a href="https://simphiwemlotshwa.substack.com/" target="_blank">Subscribe</a>
   </div>
 </nav>
 
-<!-- ── SERIES HERO ── -->
-<div class="series-hero">
-  <div class="series-hero-inner">
-    <div>
-      <div class="series-over">Intelligence Series</div>
-      <h1>AI Weekly<br><em>Africa Edition</em></h1>
-      <div class="series-tag">Signal · Strategy · Second-Order Effects · Every Tuesday</div>
-    </div>
-
-    <div class="structure-panel">
-      <div class="structure-panel-label">Report Structure — Agentic Workflow v1.0</div>
-      <ul>
-        <li><strong>§ 01</strong> Executive Summary (10 signals)</li>
-        <li><strong>§ 02</strong> Key Developments + 2nd-Order Effects</li>
-        <li><strong>§ 03</strong> Market &amp; Business Signals</li>
-        <li><strong>§ 04</strong> Strategic Insights (3 macro themes)</li>
-        <li><strong>§ 05</strong> Opportunities (actionable)</li>
-        <li><strong>§ 06</strong> Risks &amp; Threats</li>
-        <li><strong>§ 07</strong> Events Watch</li>
-        <li><strong>§ 08</strong> Intelligence Close</li>
-      </ul>
-      <div class="cadence">Window: Tue 06:00 → Tue 05:59 SAST</div>
-    </div>
+<!-- HERO -->
+<div class="hero">
+  <div class="over">AI Weekly Intelligence Series</div>
+  <h1>AI Weekly<br>African Lens</h1>
+  <div class="tag">Institutional-Grade Intelligence · Every Tuesday · 06:00 SAST</div>
+  <div class="hero-stats">
+    <div><div class="hs-val">8</div><div class="hs-lbl">Editions</div></div>
+    <div><div class="hs-val">54</div><div class="hs-lbl">Nations</div></div>
+    <div><div class="hs-val">80+</div><div class="hs-lbl">Developments Ranked</div></div>
+    <div><div class="hs-val">Q1–Q2</div><div class="hs-lbl">2026 Coverage</div></div>
   </div>
 </div>
 
-<!-- ── MAIN ── -->
 <div class="main">
 
-  <!-- ── LATEST REPORT — AIW-026-06 ── -->
-  <div class="sec-label">§ Latest Report — AI Weekly Intelligence</div>
-
-  <div class="featured-report">
-    <div class="fr-badge-row">
-      <span class="fr-badge">AIW-026-06</span>
-      <span class="fr-badge-new">New</span>
-      <span class="fr-window">Week of 14 April 2026 · Window: 08 Apr → 14 Apr 2026</span>
+  <!-- ── LATEST EDITION ── -->
+  <div class="sec-label">§ Latest Edition</div>
+  <div class="latest-feature">
+    <div class="feat-big">
+      <div class="fb-label">AI Weekly Intelligence · Edition #AIW-026-08 · NEW</div>
+      <h2>The Rules Are Being Written Now</h2>
+      <p>ITWeb AI Summit delivers first post-gazette implementation signals. SA comment window has 43 days remaining. Nigeria's bill five weeks delayed — election-shadow risk identified. GITEX Kenya opens in three weeks. Equinix JN2 build phase begins.</p>
+      <div class="fb-meta">Week of 28 April 2026 · Window: 22 Apr → 28 Apr 2026 · 6 developments ranked</div>
+      <a class="read-btn" href="aiw-026-08.html">Read Full Report →</a>
     </div>
-
-    <h2>South Africa's AI Policy <em>Lands at Last</em></h2>
-    <div class="fr-subtitle">The 60-Day Window Opens · Morocco Bets $1.28B · GITEX $5B Delivered</div>
-
-    <p class="fr-summary">
-      South Africa's Draft National AI Policy gazetted on 13 April — opening a 60-day public comment window to 10 June.
-      Morocco signed a $1.28B MoU at GITEX Africa for the Nexus AI Factory, powered by Nvidia Blackwell GPUs.
-      GITEX Africa Morocco 2026 concluded with a $5 billion deal pipeline. Mauritius launched its FAIR Guidelines.
-      The governance-capital week the continent had been waiting for arrived in one compressed seven-day window.
-    </p>
-
-    <div class="fr-signals">
-      <span class="signal-tag gold">SA Policy Gazetted</span>
-      <span class="signal-tag gold">Morocco Nexus $1.28B</span>
-      <span class="signal-tag gold">GITEX $5B Pipeline</span>
-      <span class="signal-tag teal">Mauritius FAIR Guidelines</span>
-      <span class="signal-tag">Nigeria CLHEEAN App</span>
-      <span class="signal-tag">AfDB $200M Nigeria Fibre</span>
-      <span class="signal-tag">Refiant $5M Raise</span>
-      <span class="signal-tag">Kenya-France-Morocco</span>
-      <span class="signal-tag">PayTic Morocco AI Launch</span>
-      <span class="signal-tag">IMF Sub-Saharan Outlook</span>
+    <div class="feat-stack">
+      <div class="feat-sm">
+        <div class="fs-label">Prior Edition · AIW-026-07</div>
+        <h3>The Policy Moment Arrives — SA Gazetted, GITEX Delivered</h3>
+        <div class="fs-meta">21 April 2026 · SA Gazette · AU PSC AI Security · Senegal Wins GITEX</div>
+      </div>
+      <div class="feat-sm">
+        <div class="fs-label">Prior Edition · AIW-026-06</div>
+        <h3>South Africa's AI Policy Lands — The 60-Day Window Opens</h3>
+        <div class="fs-meta">14 April 2026 · Morocco Nexus $1.28B · GITEX $5B · Mauritius FAIR</div>
+      </div>
+      <div class="feat-sm">
+        <div class="fs-label">Prior Edition · AIW-026-05</div>
+        <h3>Infrastructure Ahead of Governance — Africa's Q1 AI Reckoning</h3>
+        <div class="fs-meta">07 April 2026 · Equinix R7.5B · Nigeria Bill Misses · GITEX Opens</div>
+      </div>
     </div>
-
-    <div class="fr-stats">
-      <div class="fr-stat"><div class="val">10</div><div class="lbl">Key Developments</div></div>
-      <div class="fr-stat"><div class="val">$1.28B</div><div class="lbl">Nexus AI Factory</div></div>
-      <div class="fr-stat"><div class="val">60</div><div class="lbl">Days to Comment on SA Policy</div></div>
-      <div class="fr-stat"><div class="val">$5B</div><div class="lbl">GITEX Deal Pipeline</div></div>
-    </div>
-
-    <a class="fr-read-btn" href="aiw-026-06.html">Read Full Report →</a>
   </div>
 
-  <!-- ── PUBLISHED REPORTS ── -->
-  <div class="sec-label">§ Published Reports</div>
+  <!-- ── ALL EDITIONS ── -->
+  <div class="sec-label">§ All Editions — AI Weekly Intelligence</div>
+  <div class="edition-grid">
 
-  <div class="reports-grid">
+    <!-- AIW-026-08 -->
+    <div class="ed-card is-new">
+      <div class="ec-stripe"></div>
+      <div class="ec-body">
+        <div class="ec-top">
+          <span class="ec-badge new">NEW</span>
+          <span class="ec-num">AIW-026-08</span>
+        </div>
+        <h3>The Rules Are Being Written Now</h3>
+        <div class="ec-theme">ITWeb Post-Gazette Signals · SA Comment Window 43 Days · Nigeria Election-Shadow Risk · GITEX Kenya 3 Weeks · Equinix JN2 Build Begins</div>
+        <div class="ec-date">28 April 2026 · 6 developments</div>
+        <a class="ec-link" href="aiw-026-08.html">Read Report →</a>
+      </div>
+    </div>
+
+    <!-- AIW-026-07 -->
+    <div class="ed-card is-available">
+      <div class="ec-stripe"></div>
+      <div class="ec-body">
+        <div class="ec-top">
+          <span class="ec-badge live">Available</span>
+          <span class="ec-num">AIW-026-07</span>
+        </div>
+        <h3>The Policy Moment Arrives</h3>
+        <div class="ec-theme">SA Gazette Published · AU PSC AI Security · GITEX Delivers · Language AI Gap Quantified · IMF Warning</div>
+        <div class="ec-date">21 April 2026 · 10 developments</div>
+        <a class="ec-link" href="aiw-026-07.html">Read Report →</a>
+      </div>
+    </div>
+
+    <!-- AIW-026-06 -->
+    <div class="ed-card is-available">
+      <div class="ec-stripe"></div>
+      <div class="ec-body">
+        <div class="ec-top">
+          <span class="ec-badge live">Available</span>
+          <span class="ec-num">AIW-026-06</span>
+        </div>
+        <h3>South Africa's AI Policy Lands — The 60-Day Window Opens</h3>
+        <div class="ec-theme">SA AI Policy Gazetted · Morocco Nexus $1.28B · GITEX $5B · Mauritius FAIR Guidelines</div>
+        <div class="ec-date">14 April 2026</div>
+        <a class="ec-link" href="aiw-026-06.html">Read Report →</a>
+      </div>
+    </div>
 
     <!-- AIW-026-05 -->
-    <div class="report-card">
-      <div class="rc-badge-row">
-        <span class="rc-badge">AIW-026-05</span>
-        <span class="rc-window">31 Mar → 07 Apr 2026</span>
+    <div class="ed-card is-available">
+      <div class="ec-stripe"></div>
+      <div class="ec-body">
+        <div class="ec-top">
+          <span class="ec-badge live">Available</span>
+          <span class="ec-num">AIW-026-05</span>
+        </div>
+        <h3>Infrastructure Ahead of Governance</h3>
+        <div class="ec-theme">Equinix R7.5B · Nigeria Bill Misses Deadline · GITEX Africa Opens · ERA 2026 Concludes</div>
+        <div class="ec-date">07 April 2026 · 10 developments</div>
+        <a class="ec-link" href="aiw-026-05.html">Read Report →</a>
       </div>
-      <h3>Infrastructure Ahead of Governance — Africa's Q1 AI Reckoning</h3>
-      <div class="rc-signals">
-        <span class="rc-signal">Equinix R7.5B</span>
-        <span class="rc-signal">Nigeria Bill Deadline Miss</span>
-        <span class="rc-signal">GITEX Africa Opens</span>
-        <span class="rc-signal">SA Gazette Delayed</span>
-        <span class="rc-signal">ECA ERA 2026</span>
-        <span class="rc-signal">Kenya AI Bill Backlash</span>
-        <span class="rc-signal">Angola Startup Act</span>
-      </div>
-      <p class="rc-desc">
-        Equinix commits R7.5B to South Africa. Nigeria's AI Bill deadline expires without passage.
-        GITEX Africa Morocco opens with $350B in managed assets in the room. The week where
-        capital moved faster than governance.
-      </p>
-      <a class="rc-read-link" href="aiw-026-05.html">Read Full Report →</a>
     </div>
 
-  </div>
-
-  <!-- ── COMING SOON ── -->
-  <div class="sec-label">§ Coming Soon</div>
-
-  <div class="coming-grid">
-
     <!-- AIW-026-04 -->
-    <div class="coming-card">
-      <div class="coming-badge-row">
-        <span class="coming-badge">AIW-026-04</span>
-        <span class="rc-window">24 Mar → 31 Mar 2026</span>
+    <div class="ed-card is-coming">
+      <div class="ec-stripe"></div>
+      <div class="ec-body">
+        <div class="ec-top">
+          <span class="ec-badge soon">Coming Soon</span>
+          <span class="ec-num">AIW-026-04</span>
+        </div>
+        <h3>The Week Everything Converged</h3>
+        <div class="ec-theme">Nigeria Bill Deadline Week · SA Gazette · $2B Surveillance · TECNO EllaClaw · GITEX Preview</div>
+        <div class="ec-date">31 March 2026 · 11 developments</div>
+        <span class="ec-link disabled">Coming Soon</span>
       </div>
-      <h3>Deadline Week — 8 Days to Nigeria's AI History Moment</h3>
-      <div class="coming-signals">
-        <span class="coming-signal">Nigeria 8 Days</span>
-        <span class="coming-signal">TECNO EllaClaw</span>
-        <span class="coming-signal">UNESCO Paris</span>
-        <span class="coming-signal">Africa FinTech Forum JHB</span>
-      </div>
-      <p class="coming-desc">
-        TECNO EllaClaw launches Africa's first OpenClaw agent. Africa FinTech Forum Johannesburg.
-        UNESCO Priority Africa Paris conference. The countdown that defined March.
-      </p>
-      <span class="coming-soon-label">Coming Soon</span>
     </div>
 
     <!-- AIW-026-03 -->
-    <div class="coming-card">
-      <div class="coming-badge-row">
-        <span class="coming-badge">AIW-026-03</span>
-        <span class="rc-window">17 Mar → 24 Mar 2026</span>
+    <div class="ed-card is-available">
+      <div class="ec-stripe"></div>
+      <div class="ec-body">
+        <div class="ec-top">
+          <span class="ec-badge live">Available</span>
+          <span class="ec-num">AIW-026-03</span>
+        </div>
+        <h3>The Sovereignty Inflection</h3>
+        <div class="ec-theme">Cassava AI Factory · NVIDIA GTC Vera Rubin · Kenya AI Bill · $2.1B Surveillance · BAFAI Expansion</div>
+        <div class="ec-date">24 March 2026 · 11 developments</div>
+        <a class="ec-link" href="aiw-026-03.html">Read Report →</a>
       </div>
-      <h3>Sovereignty Week — Cassava AI Factory, NVIDIA GTC, and Korea-Africa</h3>
-      <div class="coming-signals">
-        <span class="coming-signal">Cassava AI Factory</span>
-        <span class="coming-signal">NVIDIA GTC Vera Rubin</span>
-        <span class="coming-signal">Korea-Africa AI</span>
-        <span class="coming-signal">MTN Data Centre</span>
-      </div>
-      <p class="coming-desc">
-        Cassava deploys Africa's first NVIDIA-powered sovereign AI Factory in South Africa.
-        NVIDIA GTC reveals the Vera Rubin era. MTN lines up data-centre partners.
-        Three sovereignty bets, one week.
-      </p>
-      <span class="coming-soon-label">Coming Soon</span>
     </div>
 
     <!-- AIW-026-02 -->
-    <div class="coming-card">
-      <div class="coming-badge-row">
-        <span class="coming-badge">AIW-026-02</span>
-        <span class="rc-window">10 Mar → 17 Mar 2026</span>
+    <div class="ed-card is-coming">
+      <div class="ec-stripe"></div>
+      <div class="ec-body">
+        <div class="ec-top">
+          <span class="ec-badge soon">Coming Soon</span>
+          <span class="ec-num">AIW-026-02</span>
+        </div>
+        <h3>Governance Week</h3>
+        <div class="ec-theme">Microsoft vs DeepSeek · SA AI Policy · IFF 2026 Kigali · Nigeria Surveillance Bill</div>
+        <div class="ec-date">17 March 2026</div>
+        <span class="ec-link disabled">Coming Soon</span>
       </div>
-      <h3>Governance Week — Microsoft vs DeepSeek, SA Policy, IFF Kigali</h3>
-      <div class="coming-signals">
-        <span class="coming-signal">Microsoft-DeepSeek</span>
-        <span class="coming-signal">SA AI Policy</span>
-        <span class="coming-signal">IFF Kigali</span>
-      </div>
-      <p class="coming-desc">
-        Bloomberg exclusive: Microsoft declares war on DeepSeek for Africa's AI market.
-        IFF 2026 Kigali closes as Africa's "Global Fintech Lab."
-        South Africa's AI Policy heads toward gazette.
-      </p>
-      <span class="coming-soon-label">Coming Soon</span>
     </div>
 
     <!-- AIW-026-01 -->
-    <div class="coming-card">
-      <div class="coming-badge-row">
-        <span class="coming-badge">AIW-026-01</span>
-        <span class="rc-window">03 Mar → 10 Mar 2026</span>
+    <div class="ed-card is-coming">
+      <div class="ec-stripe"></div>
+      <div class="ec-body">
+        <div class="ec-top">
+          <span class="ec-badge soon">Coming Soon</span>
+          <span class="ec-num">AIW-026-01</span>
+        </div>
+        <h3>Launch Week</h3>
+        <div class="ec-theme">Google 13 African Languages · Smile ID 69% AI Fraud · US-China AI Competition · Nigeria Strategy</div>
+        <div class="ec-date">10 March 2026</div>
+        <span class="ec-link disabled">Coming Soon</span>
       </div>
-      <h3>Launch Week — Google 13 Languages, Smile ID 69%, US-China</h3>
-      <div class="coming-signals">
-        <span class="coming-signal">Google Language AI</span>
-        <span class="coming-signal">Smile ID 69% AI Fraud</span>
-        <span class="coming-signal">US-China Competition</span>
-      </div>
-      <p class="coming-desc">
-        Google expands AI to 13 African languages. Smile ID reveals 69% of Africa's biometric
-        fraud is AI-generated. Africa emerges as the US-China AI competition's new arena.
-        The newsletter that started it all.
-      </p>
-      <span class="coming-soon-label">Coming Soon</span>
     </div>
 
+  </div><!-- /edition-grid -->
+
+  <!-- ── WHAT'S IN EACH REPORT ── -->
+  <div class="sec-label">§ What's in Every Edition</div>
+  <div class="sections-grid">
+    <div class="section-card s1">
+      <h4>Executive Summary</h4>
+      <p>9–11 signals, no noise. What actually mattered this week, concisely stated.</p>
+    </div>
+    <div class="section-card">
+      <h4>Key Developments</h4>
+      <p>Ranked items with full analysis — TECH_AUDIT verdicts, MULTI_VECTOR verification, and strategic implications.</p>
+    </div>
+    <div class="section-card s2">
+      <h4>Risks &amp; Threats</h4>
+      <p>RED_TEAM contrarian stress-tests. Bubble flags. What the consensus view is getting wrong.</p>
+    </div>
+    <div class="section-card s3">
+      <h4>Opportunities</h4>
+      <p>DELTA_ANALYSIS winner tiers. Specific, time-bounded actions for founders, investors, and policymakers.</p>
+    </div>
+    <div class="section-card">
+      <h4>Market Signals</h4>
+      <p>Capital flow analysis. Deal structures. Data points the investment community should be pricing.</p>
+    </div>
+    <div class="section-card s4">
+      <h4>Strategic Insights</h4>
+      <p>TREND_MAPPER macro narrative updates. Four-week trailing context. What the sequence tells us.</p>
+    </div>
+    <div class="section-card">
+      <h4>Research &amp; Institutional</h4>
+      <p>Reports, papers, and conference findings with direct relevance to African AI deployment.</p>
+    </div>
+    <div class="section-card">
+      <h4>Events Calendar</h4>
+      <p>Forward-looking Q2 calendar with strategic significance ratings for every listed event.</p>
+    </div>
   </div>
+
+  <!-- ── FULL ARCHIVE TABLE ── -->
+  <div class="sec-label">§ Full Archive</div>
+  <table class="archive-table">
+    <thead>
+      <tr>
+        <th>Edition</th>
+        <th>Window</th>
+        <th>Theme</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="is-new">
+        <td><span class="at-badge gold">AIW-026-08</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;white-space:nowrap;">22 → 28 Apr 2026</td>
+        <td><strong>The Rules Are Being Written Now</strong> · ITWeb Post-Gazette Signals · SA Comment Window 43 Days · Nigeria Election-Shadow Risk · GITEX Kenya · Equinix JN2</td>
+        <td><a href="aiw-026-08.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;">Read →</a></td>
+      </tr>
+      <tr>
+        <td><span class="at-badge teal">AIW-026-07</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;white-space:nowrap;">14 → 21 Apr 2026</td>
+        <td><strong>The Policy Moment Arrives</strong> · SA Gazette Published · AU PSC AI Security · GITEX Delivers · Language AI Gap · IMF Warning</td>
+        <td><a href="aiw-026-07.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;">Read →</a></td>
+      </tr>
+      <tr>
+        <td><span class="at-badge teal">AIW-026-06</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;white-space:nowrap;">08 → 14 Apr 2026</td>
+        <td>SA AI Policy Gazetted · Morocco Nexus $1.28B · GITEX $5B Pipeline · Mauritius FAIR Guidelines</td>
+        <td><a href="aiw-026-06.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;">Read →</a></td>
+      </tr>
+      <tr>
+        <td><span class="at-badge ink">AIW-026-05</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;white-space:nowrap;">31 Mar → 07 Apr 2026</td>
+        <td>Infrastructure Ahead of Governance · Equinix R7.5B · Nigeria Bill Misses Deadline · GITEX Africa Opens</td>
+        <td><a href="aiw-026-05.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;">Read →</a></td>
+      </tr>
+      <tr>
+        <td><span class="at-badge grey">AIW-026-04</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;white-space:nowrap;">24 → 31 Mar 2026</td>
+        <td>The Week Everything Converged · Nigeria Bill Deadline · SA Gazette · $2B Surveillance · TECNO EllaClaw</td>
+        <td style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid-grey);">Coming Soon</td>
+      </tr>
+      <tr>
+        <td><span class="at-badge ink">AIW-026-03</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;white-space:nowrap;">17 → 24 Mar 2026</td>
+        <td>The Sovereignty Inflection · Cassava AI Factory · NVIDIA GTC · Kenya AI Bill · $2.1B Surveillance</td>
+        <td><a href="aiw-026-03.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;">Read →</a></td>
+      </tr>
+      <tr>
+        <td><span class="at-badge grey">AIW-026-02</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;white-space:nowrap;">10 → 17 Mar 2026</td>
+        <td>Governance Week · Microsoft vs DeepSeek · SA Policy · IFF 2026 Kigali · Nigeria Surveillance Bill</td>
+        <td style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid-grey);">Coming Soon</td>
+      </tr>
+      <tr>
+        <td><span class="at-badge grey">AIW-026-01</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;white-space:nowrap;">03 → 10 Mar 2026</td>
+        <td>Launch Week · Google 13 African Languages · Smile ID 69% AI Fraud · US-China AI Competition</td>
+        <td style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid-grey);">Coming Soon</td>
+      </tr>
+    </tbody>
+  </table>
 
 </div><!-- /main -->
 
-<!-- ── SERIES STRIP ── -->
-<div class="series-strip">
-  <div class="series-strip-inner">
-    <div class="ss-text">
-      <strong>The Weekly African Lens · AI Weekly Intelligence Series</strong>
-      <span>Agentic Workflow v1.0 · Published every Tuesday at 6:00 AM SAST · 54 Nations in Scope</span>
-    </div>
-    <a class="ss-subscribe" href="https://simphiwemlotshwa.substack.com/" target="_blank">Subscribe →</a>
-  </div>
-</div>
-
-<!-- ── FOOTER ── -->
 <footer>
   <p><strong>The Weekly African Lens</strong> · AI · Machine Learning · Data Science · Across 54 Nations</p>
-  <p style="margin-top:8px;">Published at 6:00 AM SAST · Archive hosted on GitHub Pages · © 2026 The Weekly African Lens</p>
+  <p style="margin-top:8px;">AI Weekly Intelligence · Published every Tuesday at 06:00 SAST · © 2026 The Weekly African Lens</p>
   <p style="margin-top:10px;display:flex;justify-content:center;flex-wrap:wrap;gap:16px;">
-    <a href="../index.html" style="color:#7a8294;">Archive</a>
-    <a href="index.html" style="color:#7a8294;">AI Weekly</a>
-    <a href="../editions/index.html" style="color:#7a8294;">Daily Editions</a>
-    <a href="../about.html" style="color:#7a8294;">About</a>
-    <a href="../privacy.html" style="color:#7a8294;">Privacy Policy</a>
-    <a href="../terms.html" style="color:#7a8294;">Terms of Use</a>
-    <a href="../editorial.html" style="color:#7a8294;">Editorial Standards</a>
-    <a href="../sitemap.xml" style="color:#7a8294;">Sitemap</a>
-    <a href="https://simphiwemlotshwa.substack.com/" target="_blank" style="color:#7a8294;">Subscribe</a>
+    <a href="../privacy.html">Privacy Policy</a>
+    <a href="../terms.html">Terms of Use</a>
+    <a href="../editorial.html">Editorial Standards</a>
+    <a href="https://simphiwemlotshwa.substack.com/" target="_blank">Subscribe on Substack</a>
   </p>
 </footer>
 
