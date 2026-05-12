@@ -1,4 +1,4 @@
-# The Daily African Lens — Intelligence Archive
+The weekly African Lens — Intelligence Archive
 
 > AI · Machine Learning · Data Science · Across 54 Nations
 
